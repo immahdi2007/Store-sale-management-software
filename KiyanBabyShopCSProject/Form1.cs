@@ -23,6 +23,8 @@ namespace KiyanBabyShopCSProject
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.kiyanDbDataSet.Products);
             toolTip1.SetToolTip(textBox7, "جستجو بر اساس کد، نام و نوع محصول میباشد.");
+            btnRemove.Enabled = false;
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -34,6 +36,13 @@ namespace KiyanBabyShopCSProject
             txtSize.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
             txtColor.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
             txtCtg.Text = dataGridView1.Rows[index].Cells[6].Value.ToString();
+            int row_index = dataGridView1.CurrentCell.RowIndex;
+            string prdCode = dataGridView1.Rows[row_index].Cells[0].Value.ToString();
+            btnRemove.Enabled = false;
+            if (dataGridView1.Rows[row_index].Selected == true)
+            {
+                btnRemove.Enabled = btnUpdate.Enabled = true;
+            }
 
         }
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -55,8 +64,8 @@ namespace KiyanBabyShopCSProject
                     int.Parse(prdCode)
                     );
                 productsTableAdapter.Fill(kiyanDbDataSet.Products);
-                //dataGridView1.ClearSelection();
-                //dataGridView1.Rows[row_index].Selected = true;
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[row_index].Selected = true;
                 //dataGridView1.SelectedCells = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
             }
             catch (Exception ex)
@@ -89,15 +98,44 @@ namespace KiyanBabyShopCSProject
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            int row_index = dataGridView1.CurrentCell.RowIndex;
-            string prdCode = dataGridView1.Rows[row_index].Cells[0].Value.ToString();
-            productsTableAdapter.DeleteQuery(int.Parse(prdCode));
-            productsTableAdapter.Fill(kiyanDbDataSet.Products);
+            DialogResult res = MessageBox.Show(
+                "آیا از انجام این عملیات مطمعن هستید؟؟",
+                "حذف محصول",
+                MessageBoxButtons.YesNo  ,
+                MessageBoxIcon.Question
+                );
+            if (res == DialogResult.Yes) {
+                try
+                {
+                    int row_index = dataGridView1.CurrentCell.RowIndex;
+                    string prdCode = dataGridView1.Rows[row_index].Cells[0].Value.ToString();
+                    productsTableAdapter.DeleteQuery(int.Parse(prdCode));
+                    productsTableAdapter.Fill(kiyanDbDataSet.Products);
+
+                    if (row_index > 0)
+                    {
+                        dataGridView1.ClearSelection();
+                        dataGridView1.Rows[row_index].Selected = true;
+                    }
+                    txtName.Text = dataGridView1.Rows[row_index].Cells[1].Value.ToString();
+                    txtStock.Text = dataGridView1.Rows[row_index].Cells[2].Value.ToString();
+                    txtPrice.Text = dataGridView1.Rows[row_index].Cells[3].Value.ToString();
+                    txtSize.Text = dataGridView1.Rows[row_index].Cells[4].Value.ToString();
+                    txtColor.Text = dataGridView1.Rows[row_index].Cells[5].Value.ToString();
+                    txtCtg.Text = dataGridView1.Rows[row_index].Cells[6].Value.ToString();
+                } catch { 
+}
+            }
+            else
+            {
+
+            }
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
-        {   
-            productsTableAdapter.SearchByCode(kiyanDbDataSet.Products, textBox7.Text, textBox7.Text, textBox7.Text);
+        {
+            string srchTxt = textBox7.Text.Trim();
+            productsTableAdapter.SearchByCode(kiyanDbDataSet.Products, srchTxt, srchTxt, srchTxt);
             srchResultLbl.Text = dataGridView1.Rows.Count.ToString();
             srchResultLbl.ForeColor = Color.Green;
             if (textBox7.Text.Length <= 0)
@@ -125,6 +163,8 @@ namespace KiyanBabyShopCSProject
             if(tabControl1.SelectedIndex == 1)
             {
                 dataGridView1.ClearSelection();
+                btnRemove.Enabled = btnUpdate.Enabled = false;
+
             }
         }
     }
