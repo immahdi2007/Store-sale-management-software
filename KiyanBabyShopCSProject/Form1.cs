@@ -236,14 +236,30 @@ namespace KiyanBabyShopCSProject
         private void btnShopCart_Click(object sender, EventArgs e)
         {
             //int index = dataGridView1.RowCount - 1;
+<<<<<<< HEAD
             int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
             dgvFators.Rows.Add(
+=======
+            try
+            {
+                int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
+                dgvFators.Rows.Add(
+>>>>>>> 8fae994 (create Factor tab(not completed))
                 txtFCode.Text,
                 txtFname.Text,
                 txtFAmount.Text,
                 txtFPrice.Text,
                 Price_res
                 );
+<<<<<<< HEAD
+=======
+            }
+            catch
+            {
+                MessageBox.Show("لطفا فقط عدد وارد کنید");
+            }
+
+>>>>>>> 8fae994 (create Factor tab(not completed))
 
         }
 
