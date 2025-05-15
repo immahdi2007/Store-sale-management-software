@@ -23,7 +23,13 @@ namespace KiyanBabyShopCSProject
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.kiyanDbDataSet.Products);
             toolTip1.SetToolTip(textBox7, "جستجو بر اساس کد، نام و نوع محصول میباشد.");
-            btnRemove.Enabled = false;
+            btnRemove.Enabled = btnUpdate.Enabled = false;
+            LoginForm Flogin = new LoginForm();
+            //Flogin.ShowDialog();
+            //if (!Flogin.succeeded)
+            //{
+            //    this.Close();
+            //}
 
         }
 
@@ -136,12 +142,13 @@ namespace KiyanBabyShopCSProject
         {
             string srchTxt = textBox7.Text.Trim();
             productsTableAdapter.SearchByCode(kiyanDbDataSet.Products, srchTxt, srchTxt, srchTxt);
+            dataGridView1.ClearSelection();
             srchResultLbl.Text = dataGridView1.Rows.Count.ToString();
             srchResultLbl.ForeColor = Color.Green;
             if (textBox7.Text.Length <= 0)
             {
                 srchResultLbl.Text = "0";
-                srchResultLbl.ForeColor = Color.Brown;
+                srchResultLbl.ForeColor = Color.Black;
             } else if (dataGridView1.Rows.Count <= 0)
             {
                 srchResultLbl.ForeColor = Color.Black;
