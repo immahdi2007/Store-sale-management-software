@@ -73,6 +73,26 @@ namespace KiyanBabyShopCSProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_window_240px {
+            get {
+                object obj = ResourceManager.GetObject("close_window_240px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_400px {
+            get {
+                object obj = ResourceManager.GetObject("delete_400px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gradienta_1LirzgcpY2c_unsplash {
             get {
                 object obj = ResourceManager.GetObject("gradienta-1LirzgcpY2c-unsplash", resourceCulture);

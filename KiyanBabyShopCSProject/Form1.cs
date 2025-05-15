@@ -17,7 +17,7 @@ namespace KiyanBabyShopCSProject
             InitializeComponent();
         }
 
-
+        bool FcodeSucc = false;
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Products' table. You can move, or remove it, as needed.
@@ -30,7 +30,7 @@ namespace KiyanBabyShopCSProject
             //{
             //    this.Close();
             //}
-
+            btnShopCart.Enabled = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -71,7 +71,14 @@ namespace KiyanBabyShopCSProject
                     );
                 productsTableAdapter.Fill(kiyanDbDataSet.Products);
                 dataGridView1.ClearSelection();
-                dataGridView1.Rows[row_index].Selected = true;
+                btnRemove.Enabled = btnUpdate.Enabled = false;
+                MessageBox.Show("ویرایش با موفقیت انجام گردید");
+                txtName.Text =
+                txtStock.Text =
+                txtPrice.Text =
+                txtSize.Text =
+                txtColor.Text =
+                txtCtg.Text = "";
                 //dataGridView1.SelectedCells = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex];
             }
             catch (Exception ex)
@@ -121,14 +128,14 @@ namespace KiyanBabyShopCSProject
                     if (row_index > 0)
                     {
                         dataGridView1.ClearSelection();
-                        dataGridView1.Rows[row_index].Selected = true;
+                        btnRemove.Enabled = btnUpdate.Enabled = false;
                     }
-                    txtName.Text = dataGridView1.Rows[row_index].Cells[1].Value.ToString();
-                    txtStock.Text = dataGridView1.Rows[row_index].Cells[2].Value.ToString();
-                    txtPrice.Text = dataGridView1.Rows[row_index].Cells[3].Value.ToString();
-                    txtSize.Text = dataGridView1.Rows[row_index].Cells[4].Value.ToString();
-                    txtColor.Text = dataGridView1.Rows[row_index].Cells[5].Value.ToString();
-                    txtCtg.Text = dataGridView1.Rows[row_index].Cells[6].Value.ToString();
+                    txtName.Text =
+                    txtStock.Text =
+                    txtPrice.Text =
+                    txtSize.Text =
+                    txtColor.Text =
+                    txtCtg.Text = "";
                 } catch { 
 }
             }
@@ -169,10 +176,91 @@ namespace KiyanBabyShopCSProject
         {
             if(tabControl1.SelectedIndex == 1)
             {
+                productsTableAdapter.Fill(kiyanDbDataSet.Products);
                 dataGridView1.ClearSelection();
                 btnRemove.Enabled = btnUpdate.Enabled = false;
-
             }
+        }
+
+        private void txtFCode_TextChanged(object sender, EventArgs e)
+        {
+            if(txtFCode.Text.Length > 0)
+            {
+                try
+                {
+                    int fSrchCode = int.Parse(txtFCode.Text.Trim());
+                    productsTableAdapter.FillByPrdCODE(kiyanDbDataSet.Products, fSrchCode);
+                    if (kiyanDbDataSet.Products.Rows.Count > 0)
+                    {
+                        txtFname.ForeColor = Color.SeaGreen;
+                        txtFname.Text = kiyanDbDataSet.Products.Rows[0]["prdName"].ToString();
+                        txtFPrice.Text = kiyanDbDataSet.Products.Rows[0]["prdPrice"].ToString();
+                        txtFStock.Text = kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString();
+                        FcodeSucc = true;
+                    }
+                    else
+                    {
+                        txtFname.Text = "محصول مورد نظر وجود ندارد";
+                        txtFname.ForeColor = Color.Brown;
+                        txtFPrice.Text = txtFStock.Text = "";
+                        FcodeSucc = false;
+                    }
+                } catch
+                {
+                    MessageBox.Show("!لطفا فقط عدد وارد کنید");
+                }
+            } else
+            {
+                txtFname.Text = txtFPrice.Text = txtFStock.Text = "";
+                FcodeSucc = false;
+            }
+            if (FcodeSucc)
+            {
+                btnShopCart.Enabled = true;
+            } else
+            {
+                btnShopCart.Enabled = false;
+            }
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 1;
+            txtName.Focus();
+        }
+
+        private void btnShopCart_Click(object sender, EventArgs e)
+        {
+            //int index = dataGridView1.RowCount - 1;
+            int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
+            dgvFators.Rows.Add(
+                txtFCode.Text,
+                txtFname.Text,
+                txtFAmount.Text,
+                txtFPrice.Text,
+                Price_res
+                );
+
+        }
+
+        private void dgvFators_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvFators.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
+            {
+                dgvFators.Rows.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+            string prdCode = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            txtFCode.Text = prdCode;
+            txtFAmount.Focus();
         }
     }
 }
