@@ -3163,12 +3163,34 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[4];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CustomerCode, CustomerFristName, CustomerLastName, CustomerMobile FROM Cus" +
                 "tomers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM `Customers` WHERE (`CustomerCode` = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerCode", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO `Customers` (`CustomerFristName`, `CustomerLastName`, `CustomerMobile" +
+                "`) VALUES (?, ?, ?)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerFristName", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerFristName", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerLastName", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerLastName", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerMobile", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerMobile", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE `Customers` SET  `CustomerFristName` = ?, `CustomerLastName` = ?, `Custome" +
+                "rMobile` = ? WHERE (`CustomerCode` = ?)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerFristName", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerFristName", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerLastName", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerLastName", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerMobile", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerMobile", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerCode", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerCode", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3401,6 +3423,123 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string CustomerFristName, string CustomerLastName, string CustomerMobile, string Original_CustomerCode, string Original_CustomerFristName, string Original_CustomerLastName, string Original_CustomerMobile) {
             return this.Update(Original_CustomerCode, CustomerFristName, CustomerLastName, CustomerMobile, Original_CustomerCode, Original_CustomerFristName, Original_CustomerLastName, Original_CustomerMobile);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(string CustomerCode) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[1];
+            if ((CustomerCode == null)) {
+                throw new global::System.ArgumentNullException("CustomerCode");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(CustomerCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string CustomerFristName, string CustomerLastName, string CustomerMobile) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[2];
+            if ((CustomerFristName == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(CustomerFristName));
+            }
+            if ((CustomerLastName == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(CustomerLastName));
+            }
+            if ((CustomerMobile == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(CustomerMobile));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(string CustomerFristName, string CustomerLastName, string CustomerMobile, string Original_CustomerCode) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[3];
+            if ((CustomerFristName == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(CustomerFristName));
+            }
+            if ((CustomerLastName == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(CustomerLastName));
+            }
+            if ((CustomerMobile == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(CustomerMobile));
+            }
+            if ((Original_CustomerCode == null)) {
+                throw new global::System.ArgumentNullException("Original_CustomerCode");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Original_CustomerCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

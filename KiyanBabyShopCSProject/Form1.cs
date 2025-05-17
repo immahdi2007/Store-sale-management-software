@@ -20,10 +20,13 @@ namespace KiyanBabyShopCSProject
         bool FcodeSucc = false;
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'kiyanDbDataSet.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter.Fill(this.kiyanDbDataSet.Customers);
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.kiyanDbDataSet.Products);
             toolTip1.SetToolTip(textBox7, "جستجو بر اساس کد، نام و نوع محصول میباشد.");
             btnRemove.Enabled = btnUpdate.Enabled = false;
+            btnCdelete.Enabled = btnCupdate.Enabled = false;
             LoginForm Flogin = new LoginForm();
             //Flogin.ShowDialog();
             //if (!Flogin.succeeded)
@@ -42,10 +45,9 @@ namespace KiyanBabyShopCSProject
             txtSize.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
             txtColor.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
             txtCtg.Text = dataGridView1.Rows[index].Cells[6].Value.ToString();
-            int row_index = dataGridView1.CurrentCell.RowIndex;
-            string prdCode = dataGridView1.Rows[row_index].Cells[0].Value.ToString();
+            string prdCode = dataGridView1.Rows[index].Cells[0].Value.ToString();
             btnRemove.Enabled = false;
-            if (dataGridView1.Rows[row_index].Selected == true)
+            if (dataGridView1.Rows[index].Selected == true)
             {
                 btnRemove.Enabled = btnUpdate.Enabled = true;
             }
@@ -137,7 +139,7 @@ namespace KiyanBabyShopCSProject
                     txtColor.Text =
                     txtCtg.Text = "";
                 } catch { 
-}
+                        }
             }
             else
             {
@@ -179,6 +181,10 @@ namespace KiyanBabyShopCSProject
                 productsTableAdapter.Fill(kiyanDbDataSet.Products);
                 dataGridView1.ClearSelection();
                 btnRemove.Enabled = btnUpdate.Enabled = false;
+            }
+            if(tabControl1.SelectedIndex == 2)
+            {
+                btnCdelete.Enabled = btnCupdate.Enabled = false;
             }
         }
 
@@ -269,6 +275,103 @@ namespace KiyanBabyShopCSProject
             string prdCode = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
             txtFCode.Text = prdCode;
             txtFAmount.Focus();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dataGridView2.CurrentCell.RowIndex;
+            txtCname.Text = dataGridView2.Rows[index].Cells[1].Value.ToString();
+            txtCLname.Text = dataGridView2.Rows[index].Cells[2].Value.ToString();
+            txtCtel.Text = dataGridView2.Rows[index].Cells[3].Value.ToString();
+            string prdCode = dataGridView2.Rows[index].Cells[0].Value.ToString();
+            if (dataGridView2.Rows[index].Selected == true)
+            {
+                btnCdelete.Enabled = btnCupdate.Enabled = true;
+            }
+        }
+
+        private void btnCadd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "")
+                {
+                    throw new Exception("لطفا همه فیلد هارا کامل کنید");
+                }
+                customersTableAdapter.InsertQuery(txtCname.Text, txtCLname.Text, txtCtel.Text);
+                customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+        }
+
+        private void btnCdelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(
+            "آیا از انجام این عملیات مطمعن هستید؟؟",
+            "حذف مشتری",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+            if (res == DialogResult.Yes)
+            {
+                try
+                {
+                    int row_index = dataGridView2.CurrentCell.RowIndex;
+                    string CusCode = dataGridView2.Rows[row_index].Cells[0].Value.ToString();
+                    customersTableAdapter.DeleteQuery(CusCode);
+                    customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+
+                    if (row_index > 0)
+                    {
+                        dataGridView2.ClearSelection();
+                        btnCdelete.Enabled = btnCupdate.Enabled = false;
+                    }
+                    txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+                }
+                catch
+                {
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnCupdate_Click(object sender, EventArgs e)
+        {
+            int row_index = dataGridView2.CurrentCell.RowIndex;
+            string CusCode = dataGridView2.Rows[row_index].Cells[0].Value.ToString();
+            try
+            {
+                if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "")
+                {
+                    throw new Exception("لطفا همه فیلد هارا کامل کنید");
+                }
+                customersTableAdapter.UpdateQuery(txtCname.Text, txtCLname.Text, txtCtel.Text, CusCode);
+                customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+                dataGridView2.ClearSelection();
+                btnCdelete.Enabled = btnCupdate.Enabled = false;
+                MessageBox.Show("ویرایش با موفقیت انجام گردید");
+                txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtCusSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
