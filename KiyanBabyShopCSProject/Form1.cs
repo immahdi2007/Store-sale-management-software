@@ -22,6 +22,10 @@ namespace KiyanBabyShopCSProject
         int sumPrice = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
+            this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
+            // TODO: This line of code loads data into the 'kiyanDbDataSet.Factors' table. You can move, or remove it, as needed.
+            this.factorsTableAdapter.Fill(this.kiyanDbDataSet.Factors);
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.kiyanDbDataSet.Customers);
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Products' table. You can move, or remove it, as needed.
@@ -37,6 +41,9 @@ namespace KiyanBabyShopCSProject
             //    this.Close();
             //}
             btnShopCart.Enabled = false;
+
+            SubmitFactor.Enabled = false;
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -279,6 +286,14 @@ namespace KiyanBabyShopCSProject
                 MessageBox.Show("لطفا فقط عدد وارد کنید");
             }
 
+            if (dgvFators.Rows.Count > 0)
+            {
+                SubmitFactor.Enabled = true;
+            }
+            else
+            {
+                SubmitFactor.Enabled = false;
+            }
         }
 
         private void dgvFators_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -289,6 +304,15 @@ namespace KiyanBabyShopCSProject
                 sumPrice -= minusPrice;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 dgvFators.Rows.RemoveAt(e.RowIndex);
+
+                if (dgvFators.Rows.Count > 0)
+                {
+                    SubmitFactor.Enabled = true;
+                }
+                else
+                {
+                    SubmitFactor.Enabled = false;
+                }
             }
         }
 
@@ -470,6 +494,21 @@ namespace KiyanBabyShopCSProject
         {
             tabControl1.SelectedIndex = 2;
             txtCname.Focus();
+        }
+
+        private void SubmitFactor_Click(object sender, EventArgs e)
+        {
+            string FactorCode = lblFactorId.Text;
+            string CutomerCode = txtCustomerCode.Text;
+            DateTime Fdate = DateTime.Now;
+            factorsTableAdapter.InsertQuery(FactorCode, CutomerCode, Fdate);
+
+            for (int i = 0; i < dgvFators.Rows.Count; i++)
+            {
+                int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
+                int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                factorItemsTableAdapter.InsertQuery(FactorCode ,prdCode , amount);
+            }  
         }
     }
 }
