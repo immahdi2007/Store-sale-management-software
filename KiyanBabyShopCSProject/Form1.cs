@@ -18,6 +18,8 @@ namespace KiyanBabyShopCSProject
         }
 
         bool FcodeSucc = false;
+        bool FcodeSucc_cus = false;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Customers' table. You can move, or remove it, as needed.
@@ -35,6 +37,7 @@ namespace KiyanBabyShopCSProject
             //    this.Close();
             //}
             btnShopCart.Enabled = false;
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -54,6 +57,7 @@ namespace KiyanBabyShopCSProject
             }
 
         }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int row_index = dataGridView1.CurrentCell.RowIndex;
@@ -230,13 +234,16 @@ namespace KiyanBabyShopCSProject
                 txtFname.Text = txtFPrice.Text = txtFStock.Text = "";
                 FcodeSucc = false;
             }
-            if (FcodeSucc)
+
+            if (FcodeSucc && FcodeSucc_cus)
             {
                 btnShopCart.Enabled = true;
-            } else
+            }
+            else
             {
                 btnShopCart.Enabled = false;
             }
+
         }
 
         private void label21_Click(object sender, EventArgs e)
@@ -407,6 +414,56 @@ namespace KiyanBabyShopCSProject
             string CusCode = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString();
             txtCustomerCode.Text = CusCode;
             txtFAmount.Focus();
+        }
+
+        private void txtCustomerCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCustomerCode.Text.Length >= 0)
+            {
+                try
+                {
+                    string fSrchCode = txtCustomerCode.Text.Trim();
+                    customersTableAdapter.FillByCusCode(kiyanDbDataSet.Customers, fSrchCode);
+                    if (kiyanDbDataSet.Customers.Rows.Count > 0)
+                    {
+                        lblFCutumoerName.ForeColor = Color.SeaGreen;
+                        lblFCutumoerName.Text = (kiyanDbDataSet.Customers.Rows[0]["CustomerFristName"].ToString()) + (kiyanDbDataSet.Customers.Rows[0]["CustomerLastName"].ToString());
+                        lblFCutumoerTel.Text = kiyanDbDataSet.Customers.Rows[0]["CustomerMobile"].ToString();
+                        FcodeSucc_cus = true;
+                    }
+                    else
+                    {
+                        lblFCutumoerName.Text = "لطفا کد مشتری را صحیح وارد کنید.";
+                        lblFCutumoerName.ForeColor = Color.Brown;
+                        lblFCutumoerTel.Text = "";
+                        FcodeSucc_cus = false;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("!لطفا فقط عدد وارد کنید");
+                }
+            }
+            else
+            {
+                lblFCutumoerName.Text = lblFCutumoerName.Text = "";
+                FcodeSucc_cus = false;
+            }
+
+            if (FcodeSucc && FcodeSucc_cus)
+            {
+                btnShopCart.Enabled = true;
+            }
+            else
+            {
+                btnShopCart.Enabled = false;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+            CusToFac.Focus();
         }
     }
 }

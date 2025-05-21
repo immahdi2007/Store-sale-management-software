@@ -122,6 +122,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label24 = new System.Windows.Forms.Label();
+            this.srchResultLbl2 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.prdCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prdNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prdStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -139,9 +142,6 @@
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.ProductsTableAdapter();
             this.customersTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.CustomersTableAdapter();
-            this.label24 = new System.Windows.Forms.Label();
-            this.srchResultLbl2 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -511,13 +511,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblFCutumoerName);
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.txtCustomerCode);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.lblFCutumoerTel);
-            this.groupBox2.Controls.Add(this.lblFCutumoerName);
             this.groupBox2.Location = new System.Drawing.Point(338, 9);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(292, 151);
@@ -535,6 +535,7 @@
             this.button6.Text = "...";
             this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // txtCustomerCode
             // 
@@ -543,6 +544,7 @@
             this.txtCustomerCode.Size = new System.Drawing.Size(166, 30);
             this.txtCustomerCode.TabIndex = 2;
             this.txtCustomerCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCustomerCode.TextChanged += new System.EventHandler(this.txtCustomerCode_TextChanged);
             // 
             // label12
             // 
@@ -574,20 +576,18 @@
             // lblFCutumoerTel
             // 
             this.lblFCutumoerTel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFCutumoerTel.Location = new System.Drawing.Point(121, 112);
+            this.lblFCutumoerTel.Location = new System.Drawing.Point(15, 112);
             this.lblFCutumoerTel.Name = "lblFCutumoerTel";
-            this.lblFCutumoerTel.Size = new System.Drawing.Size(132, 23);
+            this.lblFCutumoerTel.Size = new System.Drawing.Size(238, 23);
             this.lblFCutumoerTel.TabIndex = 1;
-            this.lblFCutumoerTel.Text = "asdas";
             // 
             // lblFCutumoerName
             // 
             this.lblFCutumoerName.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFCutumoerName.Location = new System.Drawing.Point(95, 76);
+            this.lblFCutumoerName.Location = new System.Drawing.Point(15, 76);
             this.lblFCutumoerName.Name = "lblFCutumoerName";
-            this.lblFCutumoerName.Size = new System.Drawing.Size(132, 23);
+            this.lblFCutumoerName.Size = new System.Drawing.Size(210, 23);
             this.lblFCutumoerName.TabIndex = 1;
-            this.lblFCutumoerName.Text = "asdas";
             // 
             // tabPage2
             // 
@@ -909,7 +909,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 238);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 248);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -1223,6 +1223,42 @@
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 49;
             // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label24.Location = new System.Drawing.Point(79, 75);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(118, 40);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "محصول پیدا شد";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // srchResultLbl2
+            // 
+            this.srchResultLbl2.BackColor = System.Drawing.Color.Transparent;
+            this.srchResultLbl2.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.srchResultLbl2.ForeColor = System.Drawing.Color.Black;
+            this.srchResultLbl2.Location = new System.Drawing.Point(192, 74);
+            this.srchResultLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.srchResultLbl2.Name = "srchResultLbl2";
+            this.srchResultLbl2.Size = new System.Drawing.Size(32, 41);
+            this.srchResultLbl2.TabIndex = 9;
+            this.srchResultLbl2.Text = "0";
+            this.srchResultLbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label27
+            // 
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label27.Location = new System.Drawing.Point(215, 77);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(120, 38);
+            this.label27.TabIndex = 10;
+            this.label27.Text = "نتایج جستجو:";
+            // 
             // prdCodeDataGridViewTextBoxColumn
             // 
             this.prdCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -1348,42 +1384,6 @@
             // customersTableAdapter
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
-            // 
-            // label24
-            // 
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label24.Location = new System.Drawing.Point(79, 75);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(118, 40);
-            this.label24.TabIndex = 8;
-            this.label24.Text = "محصول پیدا شد";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // srchResultLbl2
-            // 
-            this.srchResultLbl2.BackColor = System.Drawing.Color.Transparent;
-            this.srchResultLbl2.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.srchResultLbl2.ForeColor = System.Drawing.Color.Black;
-            this.srchResultLbl2.Location = new System.Drawing.Point(192, 74);
-            this.srchResultLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.srchResultLbl2.Name = "srchResultLbl2";
-            this.srchResultLbl2.Size = new System.Drawing.Size(32, 41);
-            this.srchResultLbl2.TabIndex = 9;
-            this.srchResultLbl2.Text = "0";
-            this.srchResultLbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("B Nazanin", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label27.Location = new System.Drawing.Point(215, 77);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(120, 38);
-            this.label27.TabIndex = 10;
-            this.label27.Text = "نتایج جستجو:";
             // 
             // Form1
             // 
