@@ -387,18 +387,26 @@ namespace KiyanBabyShopCSProject
             string param3 = "%" + srchTxt + "%";
             string param4 = srchTxt + "%";
             customersTableAdapter.SearchCustomerTab(kiyanDbDataSet.Customers, param1, param2, param3 , param4);
-            //dataGridView1.ClearSelection();
-            //srchResultLbl.Text = dataGridView1.Rows.Count.ToString();
-            //srchResultLbl.ForeColor = Color.Green;
-            //if (textBox7.Text.Length <= 0)
-            //{
-            //    srchResultLbl.Text = "0";
-            //    srchResultLbl.ForeColor = Color.Black;
-            //}
-            //else if (dataGridView1.Rows.Count <= 0)
-            //{
-            //    srchResultLbl.ForeColor = Color.Black;
-            //}
+            dataGridView2.ClearSelection();
+            srchResultLbl2.Text = dataGridView2.Rows.Count.ToString();
+            srchResultLbl2.ForeColor = Color.Green;
+            if (txtCusSearch.Text.Length <= 0)
+            {
+                srchResultLbl2.Text = "0";
+                srchResultLbl2.ForeColor = Color.Black;
+            }
+            else if (dataGridView2.Rows.Count <= 0)
+            {
+                srchResultLbl2.ForeColor = Color.Black;
+            }
+        }
+
+        private void CusToFac_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+            string CusCode = dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            txtCustomerCode.Text = CusCode;
+            txtFAmount.Focus();
         }
     }
 }
