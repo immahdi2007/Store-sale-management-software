@@ -217,7 +217,6 @@
             this.Price_result.Name = "Price_result";
             this.Price_result.Size = new System.Drawing.Size(179, 37);
             this.Price_result.TabIndex = 1;
-            this.Price_result.Text = "1";
             this.Price_result.Click += new System.EventHandler(this.label21_Click);
             // 
             // label20
@@ -232,30 +231,45 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.MintCream;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(13, 18);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(111, 34);
             this.button4.TabIndex = 2;
             this.button4.Text = "پاک کردن";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.MintCream;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(130, 18);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 34);
             this.button3.TabIndex = 2;
             this.button3.Text = "چاپ";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.MintCream;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(247, 18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 34);
             this.button2.TabIndex = 2;
             this.button2.Text = "ثبت برگه خرید";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // dgvFators
             // 
@@ -383,6 +397,7 @@
             // 
             // txtFAmount
             // 
+            this.txtFAmount.BackColor = System.Drawing.SystemColors.Menu;
             this.txtFAmount.Location = new System.Drawing.Point(226, 66);
             this.txtFAmount.Name = "txtFAmount";
             this.txtFAmount.Size = new System.Drawing.Size(41, 30);
@@ -391,6 +406,7 @@
             // 
             // txtFCode
             // 
+            this.txtFCode.BackColor = System.Drawing.SystemColors.Menu;
             this.txtFCode.Location = new System.Drawing.Point(226, 23);
             this.txtFCode.Name = "txtFCode";
             this.txtFCode.Size = new System.Drawing.Size(41, 30);
@@ -400,25 +416,36 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.MintCream;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.Location = new System.Drawing.Point(193, 23);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(31, 31);
+            this.button5.Size = new System.Drawing.Size(31, 30);
             this.button5.TabIndex = 2;
             this.button5.Text = "...";
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnShopCart
             // 
+            this.btnShopCart.BackColor = System.Drawing.Color.Transparent;
+            this.btnShopCart.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShopCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnShopCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnShopCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShopCart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnShopCart.Location = new System.Drawing.Point(12, 104);
             this.btnShopCart.Name = "btnShopCart";
             this.btnShopCart.Size = new System.Drawing.Size(300, 34);
             this.btnShopCart.TabIndex = 2;
             this.btnShopCart.Text = "درج در سبد خرید";
-            this.btnShopCart.UseVisualStyleBackColor = true;
+            this.btnShopCart.UseVisualStyleBackColor = false;
             this.btnShopCart.Click += new System.EventHandler(this.btnShopCart_Click);
             // 
             // label16
@@ -526,19 +553,26 @@
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.MintCream;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button6.Location = new System.Drawing.Point(15, 29);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(31, 31);
+            this.button6.Size = new System.Drawing.Size(31, 30);
             this.button6.TabIndex = 5;
             this.button6.Text = "...";
             this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // txtCustomerCode
             // 
+            this.txtCustomerCode.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtCustomerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCustomerCode.Location = new System.Drawing.Point(48, 29);
             this.txtCustomerCode.Name = "txtCustomerCode";
             this.txtCustomerCode.Size = new System.Drawing.Size(166, 30);
@@ -610,7 +644,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox7.BackColor = System.Drawing.SystemColors.Menu;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox7.Location = new System.Drawing.Point(9, 26);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -652,6 +686,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(7, 185);
@@ -664,6 +701,11 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnRemove.Location = new System.Drawing.Point(130, 185);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -671,11 +713,16 @@
             this.btnRemove.Size = new System.Drawing.Size(120, 34);
             this.btnRemove.TabIndex = 9;
             this.btnRemove.Text = "حذف محصول";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnUpdate.Location = new System.Drawing.Point(253, 185);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -683,11 +730,16 @@
             this.btnUpdate.Size = new System.Drawing.Size(120, 34);
             this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "ویرایش محصول";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("B Nazanin", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnAdd.Location = new System.Drawing.Point(6, 140);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -695,7 +747,7 @@
             this.btnAdd.Size = new System.Drawing.Size(367, 40);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "اضافه کردن محصول";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label5
@@ -752,7 +804,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrice.BackColor = System.Drawing.SystemColors.Menu;
             this.txtPrice.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtPrice.Location = new System.Drawing.Point(6, 66);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -763,7 +815,7 @@
             // 
             // txtColor
             // 
-            this.txtColor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtColor.BackColor = System.Drawing.SystemColors.Menu;
             this.txtColor.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtColor.Location = new System.Drawing.Point(6, 105);
             this.txtColor.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -774,7 +826,7 @@
             // 
             // txtSize
             // 
-            this.txtSize.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSize.BackColor = System.Drawing.SystemColors.Menu;
             this.txtSize.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtSize.Location = new System.Drawing.Point(219, 105);
             this.txtSize.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -798,7 +850,7 @@
             // 
             // txtStock
             // 
-            this.txtStock.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtStock.BackColor = System.Drawing.SystemColors.Menu;
             this.txtStock.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtStock.Location = new System.Drawing.Point(219, 66);
             this.txtStock.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -809,7 +861,7 @@
             // 
             // txtCtg
             // 
-            this.txtCtg.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCtg.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCtg.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtCtg.Location = new System.Drawing.Point(6, 25);
             this.txtCtg.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -820,7 +872,7 @@
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtName.BackColor = System.Drawing.SystemColors.Menu;
             this.txtName.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtName.Location = new System.Drawing.Point(219, 28);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -909,7 +961,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 248);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 238);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -1000,6 +1052,9 @@
             // 
             this.CusToFac.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.CusToFac.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CusToFac.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.CusToFac.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.CusToFac.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
             this.CusToFac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CusToFac.ForeColor = System.Drawing.Color.Black;
             this.CusToFac.Location = new System.Drawing.Point(8, 185);
@@ -1012,6 +1067,10 @@
             // 
             // btnCdelete
             // 
+            this.btnCdelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnCdelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnCdelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnCdelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCdelete.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnCdelete.Location = new System.Drawing.Point(130, 185);
             this.btnCdelete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1024,6 +1083,10 @@
             // 
             // btnCupdate
             // 
+            this.btnCupdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnCupdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnCupdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnCupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCupdate.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnCupdate.Location = new System.Drawing.Point(253, 185);
             this.btnCupdate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1036,6 +1099,10 @@
             // 
             // btnCadd
             // 
+            this.btnCadd.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnCadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btnCadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnCadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadd.Font = new System.Drawing.Font("B Nazanin", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnCadd.Location = new System.Drawing.Point(8, 140);
             this.btnCadd.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1048,7 +1115,7 @@
             // 
             // txtCtel
             // 
-            this.txtCtel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCtel.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCtel.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtCtel.Location = new System.Drawing.Point(8, 105);
             this.txtCtel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1059,7 +1126,7 @@
             // 
             // txtCLname
             // 
-            this.txtCLname.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCLname.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCLname.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtCLname.Location = new System.Drawing.Point(8, 66);
             this.txtCLname.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1070,7 +1137,7 @@
             // 
             // txtCname
             // 
-            this.txtCname.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCname.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCname.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.txtCname.Location = new System.Drawing.Point(8, 28);
             this.txtCname.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -1130,7 +1197,7 @@
             // 
             // txtCusSearch
             // 
-            this.txtCusSearch.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtCusSearch.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCusSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCusSearch.Location = new System.Drawing.Point(9, 28);
             this.txtCusSearch.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);

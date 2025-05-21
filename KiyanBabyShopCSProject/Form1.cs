@@ -19,7 +19,7 @@ namespace KiyanBabyShopCSProject
 
         bool FcodeSucc = false;
         bool FcodeSucc_cus = false;
-
+        int sumPrice = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Customers' table. You can move, or remove it, as needed.
@@ -37,7 +37,6 @@ namespace KiyanBabyShopCSProject
             //    this.Close();
             //}
             btnShopCart.Enabled = false;
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -238,6 +237,7 @@ namespace KiyanBabyShopCSProject
             if (FcodeSucc && FcodeSucc_cus)
             {
                 btnShopCart.Enabled = true;
+
             }
             else
             {
@@ -259,9 +259,12 @@ namespace KiyanBabyShopCSProject
         private void btnShopCart_Click(object sender, EventArgs e)
         {
             //int index = dataGridView1.RowCount - 1;
+
             try
             {
                 int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
+                sumPrice += Price_res;
+                Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 dgvFators.Rows.Add(
                 txtFCode.Text,
                 txtFname.Text,
@@ -282,6 +285,9 @@ namespace KiyanBabyShopCSProject
         {
             if(dgvFators.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
             {
+                int minusPrice = int.Parse(dgvFators.Rows[dgvFators.CurrentCell.RowIndex].Cells[4].Value.ToString());
+                sumPrice -= minusPrice;
+                Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 dgvFators.Rows.RemoveAt(e.RowIndex);
             }
         }
@@ -427,7 +433,7 @@ namespace KiyanBabyShopCSProject
                     if (kiyanDbDataSet.Customers.Rows.Count > 0)
                     {
                         lblFCutumoerName.ForeColor = Color.SeaGreen;
-                        lblFCutumoerName.Text = (kiyanDbDataSet.Customers.Rows[0]["CustomerFristName"].ToString()) + (kiyanDbDataSet.Customers.Rows[0]["CustomerLastName"].ToString());
+                        lblFCutumoerName.Text = (kiyanDbDataSet.Customers.Rows[0]["CustomerFristName"].ToString()) + " " + (kiyanDbDataSet.Customers.Rows[0]["CustomerLastName"].ToString());
                         lblFCutumoerTel.Text = kiyanDbDataSet.Customers.Rows[0]["CustomerMobile"].ToString();
                         FcodeSucc_cus = true;
                     }
@@ -463,7 +469,7 @@ namespace KiyanBabyShopCSProject
         private void button6_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 2;
-            CusToFac.Focus();
+            txtCname.Focus();
         }
     }
 }
