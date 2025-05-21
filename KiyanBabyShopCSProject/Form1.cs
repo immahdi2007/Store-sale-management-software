@@ -25,6 +25,7 @@ namespace KiyanBabyShopCSProject
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.kiyanDbDataSet.Products);
             toolTip1.SetToolTip(textBox7, "جستجو بر اساس کد، نام و نوع محصول میباشد.");
+            toolTip1.SetToolTip(txtCusSearch, "جستجور بر اساس کد، نام و شماره تلفن مشتری میباشد.");
             btnRemove.Enabled = btnUpdate.Enabled = false;
             btnCdelete.Enabled = btnCupdate.Enabled = false;
             LoginForm Flogin = new LoginForm();
@@ -181,10 +182,19 @@ namespace KiyanBabyShopCSProject
                 productsTableAdapter.Fill(kiyanDbDataSet.Products);
                 dataGridView1.ClearSelection();
                 btnRemove.Enabled = btnUpdate.Enabled = false;
+                txtName.Text =
+                txtStock.Text =
+                txtPrice.Text =
+                txtSize.Text =
+                txtColor.Text =
+                txtCtg.Text = "";
             }
             if(tabControl1.SelectedIndex == 2)
             {
                 btnCdelete.Enabled = btnCupdate.Enabled = false;
+                customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+                dataGridView1.ClearSelection();
+                txtCname.Text = txtCLname.Text = txtCtel.Text = "";
             }
         }
 
@@ -371,7 +381,24 @@ namespace KiyanBabyShopCSProject
 
         private void txtCusSearch_TextChanged(object sender, EventArgs e)
         {
-
+            string srchTxt = txtCusSearch.Text.Trim();
+            string param1 = srchTxt + "%";
+            string param2 = "%" + srchTxt + "%";
+            string param3 = "%" + srchTxt + "%";
+            string param4 = srchTxt + "%";
+            customersTableAdapter.SearchCustomerTab(kiyanDbDataSet.Customers, param1, param2, param3 , param4);
+            //dataGridView1.ClearSelection();
+            //srchResultLbl.Text = dataGridView1.Rows.Count.ToString();
+            //srchResultLbl.ForeColor = Color.Green;
+            //if (textBox7.Text.Length <= 0)
+            //{
+            //    srchResultLbl.Text = "0";
+            //    srchResultLbl.ForeColor = Color.Black;
+            //}
+            //else if (dataGridView1.Rows.Count <= 0)
+            //{
+            //    srchResultLbl.ForeColor = Color.Black;
+            //}
         }
     }
 }
