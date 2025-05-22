@@ -20,6 +20,7 @@ namespace KiyanBabyShopCSProject
         bool FcodeSucc = false;
         bool FcodeSucc_cus = false;
         int sumPrice = 0;
+        int FactorCode = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
@@ -42,8 +43,18 @@ namespace KiyanBabyShopCSProject
             //}
             btnShopCart.Enabled = false;
 
-            SubmitFactor.Enabled = false;
 
+
+            SubmitFactor.Enabled = false;
+            try
+            {
+                int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
+                lblFactorId.Text = FactorCode.ToString();
+            }
+            catch
+            {
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -498,17 +509,19 @@ namespace KiyanBabyShopCSProject
 
         private void SubmitFactor_Click(object sender, EventArgs e)
         {
-            string FactorCode = lblFactorId.Text;
-            string CutomerCode = txtCustomerCode.Text;
-            DateTime Fdate = DateTime.Now;
-            factorsTableAdapter.InsertQuery(FactorCode, CutomerCode, Fdate);
+            string CustomerCode = txtCustomerCode.Text;
+            System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
 
-            for (int i = 0; i < dgvFators.Rows.Count; i++)
-            {
-                int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
-                int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
-                factorItemsTableAdapter.InsertQuery(FactorCode ,prdCode , amount);
-            }  
+            string Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#");
+            MessageBox.Show(Fdate);
+            //factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
+
+            //for (int i = 0; i < dgvFators.Rows.Count; i++)
+            //{
+            //    int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
+            //    int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+            //    factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
+            //}
         }
     }
 }
