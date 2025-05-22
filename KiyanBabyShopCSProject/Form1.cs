@@ -315,7 +315,7 @@ namespace KiyanBabyShopCSProject
                 sumPrice -= minusPrice;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 dgvFators.Rows.RemoveAt(e.RowIndex);
-
+                txtCustomerCode.Text = txtFCode.Text = txtFAmount.Text = "";
                 if (dgvFators.Rows.Count > 0)
                 {
                     SubmitFactor.Enabled = true;
@@ -512,8 +512,8 @@ namespace KiyanBabyShopCSProject
             string CustomerCode = txtCustomerCode.Text;
             System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
 
-            string Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#");
-            MessageBox.Show(Fdate);
+            string Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#") + " " + p.GetHour(DateTime.Now).ToString("0#") + ":" + p.GetMinute(DateTime.Now).ToString("0#") + ":" + p.GetSecond(DateTime.Now).ToString("0#");
+            MessageBox.Show(Fdate); 
             //factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
             //for (int i = 0; i < dgvFators.Rows.Count; i++)

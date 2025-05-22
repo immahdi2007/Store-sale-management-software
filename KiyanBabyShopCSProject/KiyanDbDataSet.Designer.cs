@@ -4269,7 +4269,7 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
             this._commandCollection[2].CommandText = "INSERT INTO `Factors` (`CustomerCode`, `FactorDate`) VALUES (?, ?)\r\n";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerCode", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerCode", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorDate", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorDate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorDate", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4508,7 +4508,7 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(string CustomerCode, global::System.Nullable<global::System.DateTime> FactorDate) {
+        public virtual int InsertQuery(string CustomerCode, string FactorDate) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[2];
             if ((CustomerCode == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -4516,11 +4516,11 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
             else {
                 command.Parameters[0].Value = ((string)(CustomerCode));
             }
-            if ((FactorDate.HasValue == true)) {
-                command.Parameters[1].Value = ((System.DateTime)(FactorDate.Value));
+            if ((FactorDate == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
+                command.Parameters[1].Value = ((string)(FactorDate));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
