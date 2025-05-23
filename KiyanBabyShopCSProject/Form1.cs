@@ -416,7 +416,6 @@ namespace KiyanBabyShopCSProject
         {
             int row_index = dataGridView2.CurrentCell.RowIndex;
             string CusCode = dataGridView2.Rows[row_index].Cells[0].Value.ToString();
-            MessageBox.Show(CusCode);
             try
             {
                 if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "" || txtCLoc.Text == "")
@@ -521,17 +520,34 @@ namespace KiyanBabyShopCSProject
         {
             string CustomerCode = txtCustomerCode.Text;
 
-
-            factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
-
-            for (int i = 0; i < dgvFators.Rows.Count; i++)
+            try
             {
-                int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
-                int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
-                factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
+                factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
+
+                for (int i = 0; i < dgvFators.Rows.Count; i++)
+                {
+                    int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
+                    int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                    factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
+                }
+                txtFCode.Text = 
+                txtFAmount.Text = 
+                txtCustomerCode.Text = 
+                lblFCutumoerLoc.Text = 
+                Price_result.Text = "";
+                for(int i = 0; i <= dgvFators.Rows.Count; i++)
+                {
+                    dgvFators.Rows.RemoveAt(i);
+                }
+                int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
+                lblFactorId.Text = FactorCode.ToString();
+                SubmitFactor.Enabled = false;
+                MessageBox.Show("فاکتور با کد فاکتور" + " "  + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد");
             }
-            txtFCode.Text = txtFAmount.Text = txtCustomerCode.Text = lblFCutumoerLoc.Text = "";
-            MessageBox.Show("فاکتور مورد نظر در دیتا بیس ثبت شد");
+            catch
+            {
+                MessageBox.Show("خطا در ثبت فاکتور");
+            }
         }
 
         private void txtFAmount_TextChanged(object sender, EventArgs e)
@@ -554,6 +570,16 @@ namespace KiyanBabyShopCSProject
                     }
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+                txtFCode.Text = 
+                txtFAmount.Text =
+                txtCustomerCode.Text = 
+                lblFCutumoerLoc.Text = 
+                Price_result.Text = "";
+
         }
     }
 }
