@@ -44,10 +44,9 @@ namespace KiyanBabyShopCSProject
             //    this.Close();
             //}
             btnShopCart.Enabled = false;
-
-
-
             SubmitFactor.Enabled = false;
+
+
             try
             {
                 int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
@@ -290,18 +289,36 @@ namespace KiyanBabyShopCSProject
                 int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
                 sumPrice += Price_res;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
-                dgvFators.Rows.Add(
-                txtFCode.Text,
-                txtFname.Text,
-                txtFAmount.Text,
-                txtFPrice.Text,
-                Price_res
-                );
+                bool foundPrd = false;
+                for (int i = 0; i < dgvFators.Rows.Count; i++)
+                {
+                    if (int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()) == int.Parse(txtFCode.Text))
+                    {
+                        int dgvAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                        dgvAmount += int.Parse(txtFAmount.Text);
+                        dgvFators.Rows[i].Cells[2].Value = dgvAmount;
+                        foundPrd = true;
+                        break;
+                    }
+                    else
+                    {
 
+                    }
+                }
+                if (!foundPrd)
+                {
+                    dgvFators.Rows.Add(
+                    txtFCode.Text,
+                    txtFname.Text,
+                    txtFAmount.Text,
+                    txtFPrice.Text,
+                    Price_res
+                    );
+                }
             }
             catch
             {
-                MessageBox.Show("لطفا تعداد کالا را وارد کنید!");
+                MessageBox.Show("فقط عدد وارد کنید");
             }
 
             if (dgvFators.Rows.Count > 0)
@@ -322,7 +339,7 @@ namespace KiyanBabyShopCSProject
                 sumPrice -= minusPrice;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 dgvFators.Rows.RemoveAt(e.RowIndex);
-                txtCustomerCode.Text = txtFCode.Text = txtFAmount.Text = "";
+                txtFCode.Text = txtFAmount.Text = "";
                 if (dgvFators.Rows.Count > 0)
                 {
                     SubmitFactor.Enabled = true;
@@ -523,30 +540,39 @@ namespace KiyanBabyShopCSProject
             {
                 factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
+                //for minus the number of prdStock
+                for (int i = 0; i < dgvFators.Rows.Count; i++) {
+                    kiyanDbDataSet.Products.Clear();
+                    productsTableAdapter.FillByPrdCODE(kiyanDbDataSet.Products, int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()));
+                    if(kiyanDbDataSet.Products.Rows.Count > 0)
+                    {
+                        int prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
+                        int prdAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                        int minusStock = prdStock - prdAmount;
+                        productsTableAdapter.UpdatePrdStock(minusStock.ToString() , int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()));
+                        productsTableAdapter.Fill(kiyanDbDataSet.Products);
+                    }
+                }
                 for (int i = 0; i < dgvFators.Rows.Count; i++)
                 {
                     int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
                     int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
                     factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
-
                 }
-                txtFCode.Text = 
-                txtFAmount.Text = 
-                txtCustomerCode.Text = 
-                lblFCutumoerLoc.Text = 
+                txtFCode.Text =
+                txtFAmount.Text =
+                txtCustomerCode.Text =
+                lblFCutumoerLoc.Text =
                 Price_result.Text = "";
-                for(int i = 0; i <= dgvFators.Rows.Count; i++)
-                {
-                    dgvFators.Rows.RemoveAt(i);
-                }
+                dgvFators.Rows.Clear();
                 int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
                 lblFactorId.Text = FactorCode.ToString();
                 SubmitFactor.Enabled = false;
-                MessageBox.Show("فاکتور با کد فاکتور" + " "  + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد");
+                MessageBox.Show("فاکتور با کد فاکتور" + " " + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد");
             }
-            catch
+            catch(Exception ee)
             {
-                MessageBox.Show("خطا در ثبت فاکتور");
+                MessageBox.Show("خطا در ثبت فاکتور" + ee);
             }
         }
 
@@ -579,10 +605,8 @@ namespace KiyanBabyShopCSProject
                 txtCustomerCode.Text = 
                 lblFCutumoerLoc.Text = 
                 Price_result.Text = "";
-            for (int i = 0; i <= dgvFators.Rows.Count; i++) 
-            {
-                dgvFators.Rows.RemoveAt(i);
-            }
+            SubmitFactor.Enabled = false;
+            dgvFators.Rows.Clear();
         }
     }
 }
