@@ -146,13 +146,15 @@
             this.factorsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.FactorsTableAdapter();
             this.factorItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.factorItemsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.FactorItemsTableAdapter();
+            this.lblFCutumoerLoc = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.CustomerCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerFristNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblFCutumoerLoc = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -168,6 +170,7 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
@@ -417,6 +420,7 @@
             this.txtFAmount.Size = new System.Drawing.Size(41, 30);
             this.txtFAmount.TabIndex = 4;
             this.txtFAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFAmount.TextChanged += new System.EventHandler(this.txtFAmount_TextChanged);
             // 
             // txtFCode
             // 
@@ -536,15 +540,15 @@
             // 
             // lblFactorDate
             // 
-            this.lblFactorDate.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFactorDate.Location = new System.Drawing.Point(6, 70);
+            this.lblFactorDate.ForeColor = System.Drawing.Color.DimGray;
+            this.lblFactorDate.Location = new System.Drawing.Point(1, 72);
             this.lblFactorDate.Name = "lblFactorDate";
-            this.lblFactorDate.Size = new System.Drawing.Size(103, 23);
+            this.lblFactorDate.Size = new System.Drawing.Size(107, 23);
             this.lblFactorDate.TabIndex = 1;
             // 
             // lblFactorId
             // 
-            this.lblFactorId.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblFactorId.ForeColor = System.Drawing.Color.DimGray;
             this.lblFactorId.Location = new System.Drawing.Point(6, 26);
             this.lblFactorId.Name = "lblFactorId";
             this.lblFactorId.Size = new System.Drawing.Size(67, 23);
@@ -577,8 +581,8 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.lblFCutumoerLoc);
             this.groupBox2.Controls.Add(this.lblFCutumoerTel);
+            this.groupBox2.Controls.Add(this.lblFCutumoerLoc);
             this.groupBox2.Location = new System.Drawing.Point(338, 9);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(292, 151);
@@ -592,6 +596,7 @@
             this.lblFCutumoerName.Name = "lblFCutumoerName";
             this.lblFCutumoerName.Size = new System.Drawing.Size(210, 23);
             this.lblFCutumoerName.TabIndex = 1;
+            this.lblFCutumoerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button6
             // 
@@ -652,10 +657,11 @@
             // lblFCutumoerTel
             // 
             this.lblFCutumoerTel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFCutumoerTel.Location = new System.Drawing.Point(15, 89);
+            this.lblFCutumoerTel.Location = new System.Drawing.Point(15, 88);
             this.lblFCutumoerTel.Name = "lblFCutumoerTel";
             this.lblFCutumoerTel.Size = new System.Drawing.Size(238, 23);
             this.lblFCutumoerTel.TabIndex = 1;
+            this.lblFCutumoerTel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPage2
             // 
@@ -1344,6 +1350,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label30);
+            this.tabPage4.Controls.Add(this.label28);
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tabPage4.Name = "tabPage4";
@@ -1501,9 +1509,46 @@
             // 
             this.factorItemsTableAdapter.ClearBeforeFill = true;
             // 
+            // lblFCutumoerLoc
+            // 
+            this.lblFCutumoerLoc.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblFCutumoerLoc.Location = new System.Drawing.Point(17, 112);
+            this.lblFCutumoerLoc.Name = "lblFCutumoerLoc";
+            this.lblFCutumoerLoc.Size = new System.Drawing.Size(225, 23);
+            this.lblFCutumoerLoc.TabIndex = 1;
+            this.lblFCutumoerLoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(237, 112);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(45, 23);
+            this.label29.TabIndex = 1;
+            this.label29.Text = "آدرس:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(639, 6);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(154, 23);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "لیست محصولات به اتمام رسیده";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(639, 120);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(146, 23);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "لیست محصولات در حال اتمام";
+            // 
             // CustomerCode
             // 
             this.CustomerCode.DataPropertyName = "CustomerCode1";
+            this.CustomerCode.FillWeight = 40F;
             this.CustomerCode.HeaderText = "کد مشتری";
             this.CustomerCode.Name = "CustomerCode";
             this.CustomerCode.ReadOnly = true;
@@ -1537,23 +1582,6 @@
             this.CustomerLocation.HeaderText = "آدرس";
             this.CustomerLocation.Name = "CustomerLocation";
             this.CustomerLocation.ReadOnly = true;
-            // 
-            // lblFCutumoerLoc
-            // 
-            this.lblFCutumoerLoc.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFCutumoerLoc.Location = new System.Drawing.Point(15, 115);
-            this.lblFCutumoerLoc.Name = "lblFCutumoerLoc";
-            this.lblFCutumoerLoc.Size = new System.Drawing.Size(225, 23);
-            this.lblFCutumoerLoc.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(237, 112);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(45, 23);
-            this.label29.TabIndex = 1;
-            this.label29.Text = "آدرس:";
             // 
             // Form1
             // 
@@ -1593,6 +1621,8 @@
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
@@ -1713,13 +1743,15 @@
         private System.Windows.Forms.Label lblFactorId;
         private System.Windows.Forms.TextBox txtCLoc;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lblFCutumoerLoc;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerFristNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerLastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerMobileDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerLocation;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label lblFCutumoerLoc;
     }
 }
 

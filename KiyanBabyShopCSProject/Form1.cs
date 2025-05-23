@@ -21,6 +21,7 @@ namespace KiyanBabyShopCSProject
         bool FcodeSucc_cus = false;
         int sumPrice = 0;
         int FactorCode = 0;
+        string Fdate;
         private void Form1_Load(object sender, EventArgs e)
         {
             this.kiyanDbDataSet.EnforceConstraints = false;
@@ -56,6 +57,10 @@ namespace KiyanBabyShopCSProject
             {
 
             }
+
+            System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
+            Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#") + " " + p.GetHour(DateTime.Now).ToString("0#") + ":" + p.GetMinute(DateTime.Now).ToString("0#") + ":" + p.GetSecond(DateTime.Now).ToString("0#");
+            lblFactorDate.Text = Fdate;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -234,22 +239,23 @@ namespace KiyanBabyShopCSProject
                         txtFname.Text = kiyanDbDataSet.Products.Rows[0]["prdName"].ToString();
                         txtFPrice.Text = kiyanDbDataSet.Products.Rows[0]["prdPrice"].ToString();
                         txtFStock.Text = kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString();
+                        txtFAmount.Text = "1";
                         FcodeSucc = true;
                     }
                     else
                     {
                         txtFname.Text = "محصول مورد نظر وجود ندارد";
                         txtFname.ForeColor = Color.Brown;
-                        txtFPrice.Text = txtFStock.Text = "";
+                        txtFPrice.Text = txtFStock.Text = txtFAmount.Text = "";
                         FcodeSucc = false;
                     }
                 } catch
                 {
-                    MessageBox.Show("!لطفا فقط عدد وارد کنید");
+                    MessageBox.Show("!لطفا تعداد محصول را صحیح وارد کنید");
                 }
             } else
             {
-                txtFname.Text = txtFPrice.Text = txtFStock.Text = "";
+                txtFname.Text = txtFPrice.Text = txtFStock.Text = txtFAmount.Text = "";
                 FcodeSucc = false;
             }
 
@@ -295,7 +301,7 @@ namespace KiyanBabyShopCSProject
             }
             catch
             {
-                MessageBox.Show("لطفا فقط عدد وارد کنید");
+                MessageBox.Show("لطفا تعداد کالا را وارد کنید!");
             }
 
             if (dgvFators.Rows.Count > 0)
@@ -480,7 +486,7 @@ namespace KiyanBabyShopCSProject
                     {
                         lblFCutumoerName.Text = "لطفا کد مشتری را صحیح وارد کنید.";
                         lblFCutumoerName.ForeColor = Color.Brown;
-                        lblFCutumoerTel.Text = "";
+                        lblFCutumoerTel.Text = lblFCutumoerLoc.Text = "";
                         FcodeSucc_cus = false;
                     }
                 }
@@ -514,9 +520,8 @@ namespace KiyanBabyShopCSProject
         private void SubmitFactor_Click(object sender, EventArgs e)
         {
             string CustomerCode = txtCustomerCode.Text;
-            System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
 
-            string Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#") + " " + p.GetHour(DateTime.Now).ToString("0#") + ":" + p.GetMinute(DateTime.Now).ToString("0#") + ":" + p.GetSecond(DateTime.Now).ToString("0#");
+
             factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
             for (int i = 0; i < dgvFators.Rows.Count; i++)
@@ -525,8 +530,30 @@ namespace KiyanBabyShopCSProject
                 int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
                 factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
             }
-            txtFCode.Text = txtFAmount.Text = txtCustomerCode.Text = "";
+            txtFCode.Text = txtFAmount.Text = txtCustomerCode.Text = lblFCutumoerLoc.Text = "";
             MessageBox.Show("فاکتور مورد نظر در دیتا بیس ثبت شد");
+        }
+
+        private void txtFAmount_TextChanged(object sender, EventArgs e)
+        {
+            int prdAmount = 1;
+            int prdStock = 0;
+
+            if (kiyanDbDataSet.Products.Rows.Count > 0 && txtFCode.TextLength > 0)
+            {
+                prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
+                if (int.TryParse(txtFAmount.Text, out prdAmount))
+                {
+                    if(prdAmount > prdStock)
+                    {
+                        btnShopCart.Enabled = false;
+                        MessageBox.Show("تعداد محصول مورد نظر موجود نمیباشد");
+                    } else
+                    {
+                        btnShopCart.Enabled = true;
+                    }
+                }
+            }
         }
     }
 }
