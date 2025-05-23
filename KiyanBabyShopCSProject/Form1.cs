@@ -23,6 +23,7 @@ namespace KiyanBabyShopCSProject
         int FactorCode = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.kiyanDbDataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
             this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Factors' table. You can move, or remove it, as needed.
@@ -341,6 +342,7 @@ namespace KiyanBabyShopCSProject
             txtCname.Text = dataGridView2.Rows[index].Cells[1].Value.ToString();
             txtCLname.Text = dataGridView2.Rows[index].Cells[2].Value.ToString();
             txtCtel.Text = dataGridView2.Rows[index].Cells[3].Value.ToString();
+            txtCLoc.Text = dataGridView2.Rows[index].Cells[4].Value.ToString();
             string prdCode = dataGridView2.Rows[index].Cells[0].Value.ToString();
             if (dataGridView2.Rows[index].Selected == true)
             {
@@ -352,11 +354,11 @@ namespace KiyanBabyShopCSProject
         {
             try
             {
-                if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "")
+                if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "" || txtCLoc.Text == "")
                 {
                     throw new Exception("لطفا همه فیلد هارا کامل کنید");
                 }
-                customersTableAdapter.InsertQuery(txtCname.Text, txtCLname.Text, txtCtel.Text);
+                customersTableAdapter.InsertQuery(txtCname.Text, txtCLname.Text, txtCtel.Text , txtCLoc.Text);
                 customersTableAdapter.Fill(kiyanDbDataSet.Customers);
             }
             catch (Exception ex)
@@ -367,7 +369,7 @@ namespace KiyanBabyShopCSProject
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+            txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = "";
         }
 
         private void btnCdelete_Click(object sender, EventArgs e)
@@ -392,7 +394,7 @@ namespace KiyanBabyShopCSProject
                         dataGridView2.ClearSelection();
                         btnCdelete.Enabled = btnCupdate.Enabled = false;
                     }
-                    txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+                    txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text= "";
                 }
                 catch
                 {
@@ -408,18 +410,19 @@ namespace KiyanBabyShopCSProject
         {
             int row_index = dataGridView2.CurrentCell.RowIndex;
             string CusCode = dataGridView2.Rows[row_index].Cells[0].Value.ToString();
+            MessageBox.Show(CusCode);
             try
             {
-                if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "")
+                if (txtCname.Text == "" || txtCLname.Text == "" || txtCtel.Text == "" || txtCLoc.Text == "")
                 {
                     throw new Exception("لطفا همه فیلد هارا کامل کنید");
                 }
-                customersTableAdapter.UpdateQuery(txtCname.Text, txtCLname.Text, txtCtel.Text, CusCode);
+                customersTableAdapter.UpdateQuery(txtCname.Text, txtCLname.Text, txtCtel.Text, txtCLoc.Text, int.Parse(CusCode));
                 customersTableAdapter.Fill(kiyanDbDataSet.Customers);
                 dataGridView2.ClearSelection();
                 btnCdelete.Enabled = btnCupdate.Enabled = false;
                 MessageBox.Show("ویرایش با موفقیت انجام گردید");
-                txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+                txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = "";
             }
             catch (Exception ex)
             {
@@ -470,6 +473,7 @@ namespace KiyanBabyShopCSProject
                         lblFCutumoerName.ForeColor = Color.SeaGreen;
                         lblFCutumoerName.Text = (kiyanDbDataSet.Customers.Rows[0]["CustomerFristName"].ToString()) + " " + (kiyanDbDataSet.Customers.Rows[0]["CustomerLastName"].ToString());
                         lblFCutumoerTel.Text = kiyanDbDataSet.Customers.Rows[0]["CustomerMobile"].ToString();
+                        lblFCutumoerLoc.Text = kiyanDbDataSet.Customers.Rows[0]["CustomerLocation"].ToString();
                         FcodeSucc_cus = true;
                     }
                     else
@@ -513,7 +517,6 @@ namespace KiyanBabyShopCSProject
             System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
 
             string Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#") + " " + p.GetHour(DateTime.Now).ToString("0#") + ":" + p.GetMinute(DateTime.Now).ToString("0#") + ":" + p.GetSecond(DateTime.Now).ToString("0#");
-            //MessageBox.Show(Fdate);
             factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
             for (int i = 0; i < dgvFators.Rows.Count; i++)
@@ -522,6 +525,8 @@ namespace KiyanBabyShopCSProject
                 int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
                 factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
             }
+            txtFCode.Text = txtFAmount.Text = txtCustomerCode.Text = "";
+            MessageBox.Show("فاکتور مورد نظر در دیتا بیس ثبت شد");
         }
     }
 }

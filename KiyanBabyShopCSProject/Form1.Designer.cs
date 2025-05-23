@@ -101,15 +101,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.prdCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.kiyanDbDataSet = new KiyanBabyShopCSProject.KiyanDbDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.srchResultLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -132,15 +123,22 @@
             this.txtCusSearch = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.customerCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerFristNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtCLoc = new System.Windows.Forms.TextBox();
+            this.prdCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.kiyanDbDataSet = new KiyanBabyShopCSProject.KiyanDbDataSet();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.ProductsTableAdapter();
             this.customersTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.CustomersTableAdapter();
@@ -148,6 +146,13 @@
             this.factorsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.FactorsTableAdapter();
             this.factorItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.factorItemsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.FactorItemsTableAdapter();
+            this.CustomerCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerFristNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblFCutumoerLoc = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -159,12 +164,12 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).BeginInit();
@@ -570,7 +575,9 @@
             this.groupBox2.Controls.Add(this.txtCustomerCode);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.lblFCutumoerLoc);
             this.groupBox2.Controls.Add(this.lblFCutumoerTel);
             this.groupBox2.Location = new System.Drawing.Point(338, 9);
             this.groupBox2.Name = "groupBox2";
@@ -581,7 +588,7 @@
             // lblFCutumoerName
             // 
             this.lblFCutumoerName.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFCutumoerName.Location = new System.Drawing.Point(15, 76);
+            this.lblFCutumoerName.Location = new System.Drawing.Point(15, 62);
             this.lblFCutumoerName.Name = "lblFCutumoerName";
             this.lblFCutumoerName.Size = new System.Drawing.Size(210, 23);
             this.lblFCutumoerName.TabIndex = 1;
@@ -627,7 +634,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(220, 74);
+            this.label13.Location = new System.Drawing.Point(220, 60);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 23);
             this.label13.TabIndex = 1;
@@ -636,7 +643,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(248, 110);
+            this.label14.Location = new System.Drawing.Point(248, 87);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(34, 23);
             this.label14.TabIndex = 1;
@@ -645,7 +652,7 @@
             // lblFCutumoerTel
             // 
             this.lblFCutumoerTel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblFCutumoerTel.Location = new System.Drawing.Point(15, 112);
+            this.lblFCutumoerTel.Location = new System.Drawing.Point(15, 89);
             this.lblFCutumoerTel.Name = "lblFCutumoerTel";
             this.lblFCutumoerTel.Size = new System.Drawing.Size(238, 23);
             this.lblFCutumoerTel.TabIndex = 1;
@@ -1000,85 +1007,6 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // prdCodeDataGridViewTextBoxColumn
-            // 
-            this.prdCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.prdCodeDataGridViewTextBoxColumn.DataPropertyName = "prdCode";
-            this.prdCodeDataGridViewTextBoxColumn.FillWeight = 81.76589F;
-            this.prdCodeDataGridViewTextBoxColumn.HeaderText = "کد کالا";
-            this.prdCodeDataGridViewTextBoxColumn.Name = "prdCodeDataGridViewTextBoxColumn";
-            this.prdCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdCodeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prdCodeDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // prdNameDataGridViewTextBoxColumn
-            // 
-            this.prdNameDataGridViewTextBoxColumn.DataPropertyName = "prdName";
-            this.prdNameDataGridViewTextBoxColumn.FillWeight = 195.8159F;
-            this.prdNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
-            this.prdNameDataGridViewTextBoxColumn.Name = "prdNameDataGridViewTextBoxColumn";
-            this.prdNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // prdStockDataGridViewTextBoxColumn
-            // 
-            this.prdStockDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.prdStockDataGridViewTextBoxColumn.DataPropertyName = "prdStock";
-            this.prdStockDataGridViewTextBoxColumn.FillWeight = 32.33397F;
-            this.prdStockDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
-            this.prdStockDataGridViewTextBoxColumn.Name = "prdStockDataGridViewTextBoxColumn";
-            this.prdStockDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdStockDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prdStockDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // prdPriceDataGridViewTextBoxColumn
-            // 
-            this.prdPriceDataGridViewTextBoxColumn.DataPropertyName = "prdPrice";
-            this.prdPriceDataGridViewTextBoxColumn.FillWeight = 81.76589F;
-            this.prdPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
-            this.prdPriceDataGridViewTextBoxColumn.Name = "prdPriceDataGridViewTextBoxColumn";
-            this.prdPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // prdSizeDataGridViewTextBoxColumn
-            // 
-            this.prdSizeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.prdSizeDataGridViewTextBoxColumn.DataPropertyName = "prdSize";
-            this.prdSizeDataGridViewTextBoxColumn.FillWeight = 119.9535F;
-            this.prdSizeDataGridViewTextBoxColumn.HeaderText = "سایز کالا";
-            this.prdSizeDataGridViewTextBoxColumn.Name = "prdSizeDataGridViewTextBoxColumn";
-            this.prdSizeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdSizeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prdSizeDataGridViewTextBoxColumn.Width = 86;
-            // 
-            // prdColorDataGridViewTextBoxColumn
-            // 
-            this.prdColorDataGridViewTextBoxColumn.DataPropertyName = "prdColor";
-            this.prdColorDataGridViewTextBoxColumn.FillWeight = 81.76589F;
-            this.prdColorDataGridViewTextBoxColumn.HeaderText = "رنگ کالا";
-            this.prdColorDataGridViewTextBoxColumn.Name = "prdColorDataGridViewTextBoxColumn";
-            this.prdColorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdColorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.FillWeight = 106.599F;
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "نوع کالا";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // productsBindingSource1
-            // 
-            this.productsBindingSource1.DataMember = "Products";
-            this.productsBindingSource1.DataSource = this.kiyanDbDataSet;
-            // 
-            // kiyanDbDataSet
-            // 
-            this.kiyanDbDataSet.DataSetName = "KiyanDbDataSet";
-            this.kiyanDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
@@ -1175,9 +1103,11 @@
             this.groupBox6.Controls.Add(this.btnCdelete);
             this.groupBox6.Controls.Add(this.btnCupdate);
             this.groupBox6.Controls.Add(this.btnCadd);
+            this.groupBox6.Controls.Add(this.txtCLoc);
             this.groupBox6.Controls.Add(this.txtCtel);
             this.groupBox6.Controls.Add(this.txtCLname);
             this.groupBox6.Controls.Add(this.txtCname);
+            this.groupBox6.Controls.Add(this.label25);
             this.groupBox6.Controls.Add(this.pictureBox2);
             this.groupBox6.Controls.Add(this.label23);
             this.groupBox6.Controls.Add(this.label22);
@@ -1259,7 +1189,7 @@
             // 
             this.txtCtel.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCtel.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txtCtel.Location = new System.Drawing.Point(8, 105);
+            this.txtCtel.Location = new System.Drawing.Point(8, 69);
             this.txtCtel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtCtel.Name = "txtCtel";
             this.txtCtel.Size = new System.Drawing.Size(350, 28);
@@ -1270,10 +1200,10 @@
             // 
             this.txtCLname.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCLname.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txtCLname.Location = new System.Drawing.Point(8, 66);
+            this.txtCLname.Location = new System.Drawing.Point(8, 33);
             this.txtCLname.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtCLname.Name = "txtCLname";
-            this.txtCLname.Size = new System.Drawing.Size(350, 28);
+            this.txtCLname.Size = new System.Drawing.Size(127, 28);
             this.txtCLname.TabIndex = 2;
             this.txtCLname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1281,10 +1211,10 @@
             // 
             this.txtCname.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCname.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txtCname.Location = new System.Drawing.Point(8, 28);
+            this.txtCname.Location = new System.Drawing.Point(231, 33);
             this.txtCname.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtCname.Name = "txtCname";
-            this.txtCname.Size = new System.Drawing.Size(350, 28);
+            this.txtCname.Size = new System.Drawing.Size(127, 28);
             this.txtCname.TabIndex = 1;
             this.txtCname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1304,7 +1234,7 @@
             // label23
             // 
             this.label23.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label23.Location = new System.Drawing.Point(365, 105);
+            this.label23.Location = new System.Drawing.Point(365, 69);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1316,7 +1246,7 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label22.Location = new System.Drawing.Point(335, 66);
+            this.label22.Location = new System.Drawing.Point(121, 33);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1383,10 +1313,11 @@
             this.dataGridView2.ColumnHeadersHeight = 35;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerCodeDataGridViewTextBoxColumn,
+            this.CustomerCode,
             this.customerFristNameDataGridViewTextBoxColumn,
             this.customerLastNameDataGridViewTextBoxColumn,
-            this.customerMobileDataGridViewTextBoxColumn});
+            this.customerMobileDataGridViewTextBoxColumn,
+            this.CustomerLocation});
             this.dataGridView2.DataSource = this.customersBindingSource;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
@@ -1411,40 +1342,6 @@
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
-            // customerCodeDataGridViewTextBoxColumn
-            // 
-            this.customerCodeDataGridViewTextBoxColumn.DataPropertyName = "CustomerCode";
-            this.customerCodeDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.customerCodeDataGridViewTextBoxColumn.HeaderText = "کد مشتری";
-            this.customerCodeDataGridViewTextBoxColumn.Name = "customerCodeDataGridViewTextBoxColumn";
-            this.customerCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerFristNameDataGridViewTextBoxColumn
-            // 
-            this.customerFristNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerFristName";
-            this.customerFristNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
-            this.customerFristNameDataGridViewTextBoxColumn.Name = "customerFristNameDataGridViewTextBoxColumn";
-            this.customerFristNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerLastNameDataGridViewTextBoxColumn
-            // 
-            this.customerLastNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerLastName";
-            this.customerLastNameDataGridViewTextBoxColumn.HeaderText = "نام خانوادگی مشتری";
-            this.customerLastNameDataGridViewTextBoxColumn.Name = "customerLastNameDataGridViewTextBoxColumn";
-            this.customerLastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerMobileDataGridViewTextBoxColumn
-            // 
-            this.customerMobileDataGridViewTextBoxColumn.DataPropertyName = "CustomerMobile";
-            this.customerMobileDataGridViewTextBoxColumn.HeaderText = "شماره تلفن";
-            this.customerMobileDataGridViewTextBoxColumn.Name = "customerMobileDataGridViewTextBoxColumn";
-            this.customerMobileDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "Customers";
-            this.customersBindingSource.DataSource = this.kiyanDbDataSet;
-            // 
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
@@ -1465,6 +1362,113 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 49;
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label25.Location = new System.Drawing.Point(365, 105);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label25.Size = new System.Drawing.Size(72, 24);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "آدرس";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtCLoc
+            // 
+            this.txtCLoc.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtCLoc.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtCLoc.Location = new System.Drawing.Point(8, 105);
+            this.txtCLoc.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtCLoc.Name = "txtCLoc";
+            this.txtCLoc.Size = new System.Drawing.Size(350, 28);
+            this.txtCLoc.TabIndex = 3;
+            this.txtCLoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // prdCodeDataGridViewTextBoxColumn
+            // 
+            this.prdCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.prdCodeDataGridViewTextBoxColumn.DataPropertyName = "prdCode";
+            this.prdCodeDataGridViewTextBoxColumn.FillWeight = 81.76589F;
+            this.prdCodeDataGridViewTextBoxColumn.HeaderText = "کد کالا";
+            this.prdCodeDataGridViewTextBoxColumn.Name = "prdCodeDataGridViewTextBoxColumn";
+            this.prdCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdCodeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.prdCodeDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // prdNameDataGridViewTextBoxColumn
+            // 
+            this.prdNameDataGridViewTextBoxColumn.DataPropertyName = "prdName";
+            this.prdNameDataGridViewTextBoxColumn.FillWeight = 195.8159F;
+            this.prdNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
+            this.prdNameDataGridViewTextBoxColumn.Name = "prdNameDataGridViewTextBoxColumn";
+            this.prdNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // prdStockDataGridViewTextBoxColumn
+            // 
+            this.prdStockDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.prdStockDataGridViewTextBoxColumn.DataPropertyName = "prdStock";
+            this.prdStockDataGridViewTextBoxColumn.FillWeight = 32.33397F;
+            this.prdStockDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
+            this.prdStockDataGridViewTextBoxColumn.Name = "prdStockDataGridViewTextBoxColumn";
+            this.prdStockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdStockDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.prdStockDataGridViewTextBoxColumn.Width = 89;
+            // 
+            // prdPriceDataGridViewTextBoxColumn
+            // 
+            this.prdPriceDataGridViewTextBoxColumn.DataPropertyName = "prdPrice";
+            this.prdPriceDataGridViewTextBoxColumn.FillWeight = 81.76589F;
+            this.prdPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
+            this.prdPriceDataGridViewTextBoxColumn.Name = "prdPriceDataGridViewTextBoxColumn";
+            this.prdPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // prdSizeDataGridViewTextBoxColumn
+            // 
+            this.prdSizeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.prdSizeDataGridViewTextBoxColumn.DataPropertyName = "prdSize";
+            this.prdSizeDataGridViewTextBoxColumn.FillWeight = 119.9535F;
+            this.prdSizeDataGridViewTextBoxColumn.HeaderText = "سایز کالا";
+            this.prdSizeDataGridViewTextBoxColumn.Name = "prdSizeDataGridViewTextBoxColumn";
+            this.prdSizeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdSizeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.prdSizeDataGridViewTextBoxColumn.Width = 86;
+            // 
+            // prdColorDataGridViewTextBoxColumn
+            // 
+            this.prdColorDataGridViewTextBoxColumn.DataPropertyName = "prdColor";
+            this.prdColorDataGridViewTextBoxColumn.FillWeight = 81.76589F;
+            this.prdColorDataGridViewTextBoxColumn.HeaderText = "رنگ کالا";
+            this.prdColorDataGridViewTextBoxColumn.Name = "prdColorDataGridViewTextBoxColumn";
+            this.prdColorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdColorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.FillWeight = 106.599F;
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "نوع کالا";
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // productsBindingSource1
+            // 
+            this.productsBindingSource1.DataMember = "Products";
+            this.productsBindingSource1.DataSource = this.kiyanDbDataSet;
+            // 
+            // kiyanDbDataSet
+            // 
+            this.kiyanDbDataSet.DataSetName = "KiyanDbDataSet";
+            this.kiyanDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "Customers";
+            this.customersBindingSource.DataSource = this.kiyanDbDataSet;
             // 
             // productsBindingSource
             // 
@@ -1496,6 +1500,60 @@
             // factorItemsTableAdapter
             // 
             this.factorItemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // CustomerCode
+            // 
+            this.CustomerCode.DataPropertyName = "CustomerCode1";
+            this.CustomerCode.HeaderText = "کد مشتری";
+            this.CustomerCode.Name = "CustomerCode";
+            this.CustomerCode.ReadOnly = true;
+            // 
+            // customerFristNameDataGridViewTextBoxColumn
+            // 
+            this.customerFristNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerFristName";
+            this.customerFristNameDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.customerFristNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
+            this.customerFristNameDataGridViewTextBoxColumn.Name = "customerFristNameDataGridViewTextBoxColumn";
+            this.customerFristNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerLastNameDataGridViewTextBoxColumn
+            // 
+            this.customerLastNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerLastName";
+            this.customerLastNameDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.customerLastNameDataGridViewTextBoxColumn.HeaderText = "نام خانوادگی مشتری";
+            this.customerLastNameDataGridViewTextBoxColumn.Name = "customerLastNameDataGridViewTextBoxColumn";
+            this.customerLastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerMobileDataGridViewTextBoxColumn
+            // 
+            this.customerMobileDataGridViewTextBoxColumn.DataPropertyName = "CustomerMobile";
+            this.customerMobileDataGridViewTextBoxColumn.HeaderText = "شماره تلفن";
+            this.customerMobileDataGridViewTextBoxColumn.Name = "customerMobileDataGridViewTextBoxColumn";
+            this.customerMobileDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CustomerLocation
+            // 
+            this.CustomerLocation.DataPropertyName = "CustomerLocation";
+            this.CustomerLocation.HeaderText = "آدرس";
+            this.CustomerLocation.Name = "CustomerLocation";
+            this.CustomerLocation.ReadOnly = true;
+            // 
+            // lblFCutumoerLoc
+            // 
+            this.lblFCutumoerLoc.ForeColor = System.Drawing.Color.SeaGreen;
+            this.lblFCutumoerLoc.Location = new System.Drawing.Point(15, 115);
+            this.lblFCutumoerLoc.Name = "lblFCutumoerLoc";
+            this.lblFCutumoerLoc.Size = new System.Drawing.Size(225, 23);
+            this.lblFCutumoerLoc.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(237, 112);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(45, 23);
+            this.label29.TabIndex = 1;
+            this.label29.Text = "آدرس:";
             // 
             // Form1
             // 
@@ -1529,14 +1587,14 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).EndInit();
@@ -1644,10 +1702,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.BindingSource customersBindingSource;
         private KiyanDbDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerFristNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerLastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerMobileDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label srchResultLbl2;
         private System.Windows.Forms.Label label27;
@@ -1657,6 +1711,15 @@
         private KiyanDbDataSetTableAdapters.FactorItemsTableAdapter factorItemsTableAdapter;
         private System.Windows.Forms.Label lblFactorDate;
         private System.Windows.Forms.Label lblFactorId;
+        private System.Windows.Forms.TextBox txtCLoc;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerFristNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerLastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerMobileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerLocation;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lblFCutumoerLoc;
     }
 }
 
