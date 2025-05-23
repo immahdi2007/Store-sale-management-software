@@ -7,9 +7,12 @@
     }
 }
 
-namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
-    
-    
+namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters
+{
+    partial class FactorsTableAdapter
+    {
+    }
+
     public partial class ProductsTableAdapter {
 
     }

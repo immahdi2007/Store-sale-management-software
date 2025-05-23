@@ -84,3 +84,6 @@ publish/
 *.swo
 *.sln.ide
 *.sln.docstates
+
+*.accdb
+*.mdb
