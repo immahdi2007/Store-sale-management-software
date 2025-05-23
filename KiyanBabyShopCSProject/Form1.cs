@@ -513,15 +513,15 @@ namespace KiyanBabyShopCSProject
             System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
 
             string Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#") + " " + p.GetHour(DateTime.Now).ToString("0#") + ":" + p.GetMinute(DateTime.Now).ToString("0#") + ":" + p.GetSecond(DateTime.Now).ToString("0#");
-            MessageBox.Show(Fdate); 
-            //factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
+            //MessageBox.Show(Fdate);
+            factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
-            //for (int i = 0; i < dgvFators.Rows.Count; i++)
-            //{
-            //    int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
-            //    int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
-            //    factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
-            //}
+            for (int i = 0; i < dgvFators.Rows.Count; i++)
+            {
+                int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
+                int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
+            }
         }
     }
 }
