@@ -221,7 +221,7 @@ namespace KiyanBabyShopCSProject
                 btnCdelete.Enabled = btnCupdate.Enabled = false;
                 customersTableAdapter.Fill(kiyanDbDataSet.Customers);
                 dataGridView1.ClearSelection();
-                txtCname.Text = txtCLname.Text = txtCtel.Text = "";
+                txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = "";
             }
         }
 
@@ -519,7 +519,6 @@ namespace KiyanBabyShopCSProject
         private void SubmitFactor_Click(object sender, EventArgs e)
         {
             string CustomerCode = txtCustomerCode.Text;
-
             try
             {
                 factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
@@ -529,6 +528,7 @@ namespace KiyanBabyShopCSProject
                     int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
                     int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
                     factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
+
                 }
                 txtFCode.Text = 
                 txtFAmount.Text = 
@@ -579,7 +579,10 @@ namespace KiyanBabyShopCSProject
                 txtCustomerCode.Text = 
                 lblFCutumoerLoc.Text = 
                 Price_result.Text = "";
-
+            for (int i = 0; i <= dgvFators.Rows.Count; i++) 
+            {
+                dgvFators.Rows.RemoveAt(i);
+            }
         }
     }
 }
