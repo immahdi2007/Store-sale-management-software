@@ -571,27 +571,35 @@ namespace KiyanBabyShopCSProject
                 factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
                 //for minus the number of prdStock
+                int prdStock = 0;
+                int prdAmount = 0;
+                int minusStock = 0;
                 for (int i = 0; i < dgvFators.Rows.Count; i++) {
                     kiyanDbDataSet.Products.Clear();
                     productsTableAdapter.FillByPrdCODE(kiyanDbDataSet.Products, int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()));
                     if(kiyanDbDataSet.Products.Rows.Count > 0)
                     {
-                        int prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
-                        int prdAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
-                        int minusStock = prdStock - prdAmount;
-                        //if ()
-                        //{
-
-                        //}
-
+                        prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
+                        prdAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                        minusStock = prdStock - prdAmount;
+                        if (prdAmount > prdStock)
+                        {
+                            minusStock = 0;
+                        }
                         productsTableAdapter.UpdatePrdStock(minusStock.ToString() , int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()));
                         productsTableAdapter.Fill(kiyanDbDataSet.Products);
                     }
                 }
+                int amount = 0;
                 for (int i = 0; i < dgvFators.Rows.Count; i++)
                 {
                     int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
-                    int amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                    amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+                    if (prdAmount > prdStock)
+                    {
+                        minusStock = 0;
+                        amount = prdStock;
+                    }
                     factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
                 }
                 txtFCode.Text =
@@ -603,7 +611,16 @@ namespace KiyanBabyShopCSProject
                 int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
                 lblFactorId.Text = FactorCode.ToString();
                 SubmitFactor.Enabled = false;
-                MessageBox.Show("فاکتور با کد فاکتور" + " " + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد" , "", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                if(prdAmount > prdStock)
+                {
+                    MessageBox.Show($"مقدار درخواستی برای محصول مورد نظر بیشتر از موجودی انبار بود\n" +
+                        $"از تعداد {prdAmount} عدد درخواستی، فقط {amount} عدد تحویل داده شد" ,
+                        "هشدار موجودی",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                        );
+                }
+                MessageBox.Show("فاکتور با کد فاکتور" + " " + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد" , "عملیات موفق", MessageBoxButtons.OK , MessageBoxIcon.Information);
             }
             catch(Exception ee)
             {
