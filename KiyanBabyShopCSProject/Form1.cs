@@ -297,6 +297,10 @@ namespace KiyanBabyShopCSProject
         private void btnShopCart_Click(object sender, EventArgs e)
         {
             //int index = dataGridView1.RowCount - 1;
+            txtCustomerCode.ReadOnly = true;
+            button6.Enabled = false;
+            CusToFac.Enabled = false;
+
 
             try
             {
@@ -349,12 +353,15 @@ namespace KiyanBabyShopCSProject
         {
             if(dgvFators.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
             {
-                if (dgvFators.Rows.Count > 0)
+                if (dgvFators.Rows.Count > 1)
                 {
                     SubmitFactor.Enabled = true;
                 }
                 else
                 {
+                    txtCustomerCode.ReadOnly = false;
+                    button6.Enabled = true;
+                    CusToFac.Enabled = true;
                     sumPrice = 0;
                     SubmitFactor.Enabled = false;
                 }
@@ -531,15 +538,6 @@ namespace KiyanBabyShopCSProject
                 lblFCutumoerName.Text = lblFCutumoerName.Text = "";
                 FcodeSucc_cus = false;
             }
-
-            //if (FcodeSucc && FcodeSucc_cus)
-            //{
-            //    btnShopCart.Enabled = true;
-            //}
-            //else
-            //{
-            //    btnShopCart.Enabled = false;
-            //}
             CheckEnabaledBtnShopCart();
         }
 
@@ -622,6 +620,7 @@ namespace KiyanBabyShopCSProject
             {
                 MessageBox.Show("خطا در ثبت فاکتور" + ee.Message , "" , MessageBoxButtons.OK , MessageBoxIcon.Error);
             }
+            
         }
 
         private void txtFAmount_TextChanged(object sender, EventArgs e)
@@ -636,13 +635,11 @@ namespace KiyanBabyShopCSProject
                 {
                     if(prdAmount > prdStock)
                     {
-                        //btnShopCart.Enabled = false;
                         isStockValid = false;
                         MessageBox.Show("تعداد محصول مورد نظر موجود نمیباشد","خطا" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                     } else
                     {
                         isStockValid = true;
-                        //btnShopCart.Enabled = true;
                     }
                     CheckEnabaledBtnShopCart();
                 }
@@ -651,6 +648,7 @@ namespace KiyanBabyShopCSProject
 
         private void button4_Click(object sender, EventArgs e)
         {
+
                 txtFCode.Text = 
                 txtFAmount.Text =
                 txtCustomerCode.Text = 
@@ -659,6 +657,9 @@ namespace KiyanBabyShopCSProject
             SubmitFactor.Enabled = false;
             sumPrice = 0;
             dgvFators.Rows.Clear();
+            txtCustomerCode.ReadOnly = false;
+            button6.Enabled = true;
+            CusToFac.Enabled = true;
         }
     }
 }
