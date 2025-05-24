@@ -571,36 +571,39 @@ namespace KiyanBabyShopCSProject
                 factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
 
                 //for minus the number of prdStock
-                int prdStock = 0;
-                int prdAmount = 0;
-                int minusStock = 0;
                 for (int i = 0; i < dgvFators.Rows.Count; i++) {
+                    int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
+                    int prdAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
+
                     kiyanDbDataSet.Products.Clear();
-                    productsTableAdapter.FillByPrdCODE(kiyanDbDataSet.Products, int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()));
+                    productsTableAdapter.FillByPrdCODE(kiyanDbDataSet.Products, prdCode);
+
                     if(kiyanDbDataSet.Products.Rows.Count > 0)
                     {
-                        prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
-                        prdAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
-                        minusStock = prdStock - prdAmount;
+                        int prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
+                        int finalAmount = prdAmount;
+                        
+                        //minusStock = prdStock - prdAmount;
                         if (prdAmount > prdStock)
                         {
-                            minusStock = 0;
+                            finalAmount = prdStock;
+                            MessageBox.Show($"مقدار درخواستی برای محصول مورد نظر بیشتر از موجودی انبار بود\n" +
+                                $"از تعداد {prdAmount} عدد درخواستی، فقط {prdStock} عدد تحویل داده شد",
+                                "هشدار موجودی",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning
+                                );
                         }
-                        productsTableAdapter.UpdatePrdStock(minusStock.ToString() , int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()));
+
+
+                        int minusStock = prdStock - finalAmount;
+                        productsTableAdapter.UpdatePrdStock(minusStock.ToString() , prdCode);
                         productsTableAdapter.Fill(kiyanDbDataSet.Products);
+
+
+                        //submit in factorItem
+                        factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, finalAmount);
                     }
-                }
-                int amount = 0;
-                for (int i = 0; i < dgvFators.Rows.Count; i++)
-                {
-                    int prdCode = int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString());
-                    amount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
-                    if (prdAmount > prdStock)
-                    {
-                        minusStock = 0;
-                        amount = prdStock;
-                    }
-                    factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, amount);
                 }
                 txtFCode.Text =
                 txtFAmount.Text =
@@ -611,20 +614,13 @@ namespace KiyanBabyShopCSProject
                 int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
                 lblFactorId.Text = FactorCode.ToString();
                 SubmitFactor.Enabled = false;
-                if(prdAmount > prdStock)
-                {
-                    MessageBox.Show($"مقدار درخواستی برای محصول مورد نظر بیشتر از موجودی انبار بود\n" +
-                        $"از تعداد {prdAmount} عدد درخواستی، فقط {amount} عدد تحویل داده شد" ,
-                        "هشدار موجودی",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                        );
-                }
+
+
                 MessageBox.Show("فاکتور با کد فاکتور" + " " + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد" , "عملیات موفق", MessageBoxButtons.OK , MessageBoxIcon.Information);
             }
             catch(Exception ee)
             {
-                MessageBox.Show("خطا در ثبت فاکتور" + ee , "" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                MessageBox.Show("خطا در ثبت فاکتور" + ee.Message , "" , MessageBoxButtons.OK , MessageBoxIcon.Error);
             }
         }
 
