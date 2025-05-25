@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DGVPrinterHelper;
 
 namespace KiyanBabyShopCSProject
 {
@@ -24,6 +26,7 @@ namespace KiyanBabyShopCSProject
         int sumPrice = 0;
         int FactorCode = 0;
         string Fdate;
+        string FactorPrintDate;
 
         private void CheckEnabaledBtnShopCart()
         {
@@ -73,6 +76,7 @@ namespace KiyanBabyShopCSProject
 
             System.Globalization.PersianCalendar p = new System.Globalization.PersianCalendar();
             Fdate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#") + " " + p.GetHour(DateTime.Now).ToString("0#") + ":" + p.GetMinute(DateTime.Now).ToString("0#") + ":" + p.GetSecond(DateTime.Now).ToString("0#");
+            FactorPrintDate = p.GetYear(DateTime.Now).ToString() + "/" + p.GetMonth(DateTime.Now).ToString("0#") + "/" + p.GetDayOfMonth(DateTime.Now).ToString("0#");
             lblFactorDate.Text = Fdate;
         }
 
@@ -304,12 +308,13 @@ namespace KiyanBabyShopCSProject
 
             try
             {
-                int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
+                int Price_res = 0;
                 sumPrice += Price_res;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 bool foundPrd = false;
                 for (int i = 0; i < dgvFators.Rows.Count; i++)
                 {
+                    Price_res = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString()) * int.Parse(dgvFators.Rows[i].Cells[3].Value.ToString());
                     if (int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()) == int.Parse(txtFCode.Text))
                     {
                         int dgvAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
@@ -615,6 +620,9 @@ namespace KiyanBabyShopCSProject
 
 
                 MessageBox.Show("فاکتور با کد فاکتور" + " " + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد" , "عملیات موفق", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                txtCustomerCode.ReadOnly = false;
+                button6.Enabled = true;
+                CusToFac.Enabled = true;
             }
             catch(Exception ee)
             {
@@ -660,6 +668,89 @@ namespace KiyanBabyShopCSProject
             txtCustomerCode.ReadOnly = false;
             button6.Enabled = true;
             CusToFac.Enabled = true;
+        }
+
+        private void printFactor(Panel pnl)
+        {
+            PrinterSettings pf = new PrinterSettings();
+            PanelPrint = pnl;
+            getPrintArea(pnl);
+
+            //PaperSize a5Size = new PaperSize("A5", 583, 827);
+            //printDocument1.DefaultPageSettings.PaperSize = a5Size;
+
+            printPreviewDialog1.Document = printDocument1;
+            //printDocument1.DefaultPageSettings.Landscape = true;
+
+            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            printPreviewDialog1.ShowDialog(); 
+
+
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pageArea = e.PageBounds;
+            e.Graphics.DrawImage(memoryImage, (pageArea.Width / 2) - (this.PanelPrint.Width / 2), this.PanelPrint.Location.Y);
+
+        }
+
+        private Bitmap memoryImage;
+
+        private void getPrintArea(Panel pnl)
+        {
+            //Size orginalSize = pnl.Size;
+
+            //pnl.Height = pnl.PreferredSize.Height;
+
+
+            float scale = 2.0f;
+            int width = (int)(pnl.Width * scale);
+            int height = (int)(pnl.Height * scale);
+            memoryImage = new Bitmap(width, height);
+
+            using (Graphics g = Graphics.FromImage(memoryImage))
+            {
+                g.ScaleTransform(scale, scale);
+                pnl.DrawToBitmap(memoryImage, new Rectangle(0, 0, width, height));
+            }
+
+            //pnl.Size = orginalSize;
+        }
+
+        private void btnPrintFactor_Click(object sender, EventArgs e)
+        {
+
+            //printFactor(this.PanelPrint);
+            //dgvFators.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            //dgvFators.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            dgvFators.Columns["column6"].Visible = false;
+            DGVPrinter printerFcator = new DGVPrinter();
+
+            printerFcator.TitleFont = new Font("B Titr", 16, FontStyle.Bold);
+            printerFcator.Title = "برگه فاکتور " + lblFCutumoerName.Text + "\n" +
+                "تاریخ: " + FactorPrintDate
+                ;
+
+            printerFcator.SubTitleFont = new Font("B Titr", 16, FontStyle.Bold);
+            printerFcator.SubTitle = "قیمت مجموع: " + Price_result.Text + "\n\n";
+            printerFcator.TitleAlignment = StringAlignment.Far;
+            printerFcator.SubTitleAlignment = StringAlignment.Near;
+
+
+            printerFcator.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            //printerFcator.PageNumbers = true;
+            printerFcator.PageNumberInHeader = false;
+            printerFcator.PorportionalColumns = true;
+            printerFcator.HeaderCellAlignment = StringAlignment.Near;
+            //printerFcator.Footer = "";
+            printerFcator.FooterSpacing = 15;
+            printerFcator.printDocument.DefaultPageSettings.Landscape = true;
+            printerFcator.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
+            printerFcator.PrintDataGridView(dgvFators);
+            dgvFators.Columns["column6"].Visible = true;
+
         }
     }
 }
