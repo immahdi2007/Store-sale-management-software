@@ -308,18 +308,19 @@ namespace KiyanBabyShopCSProject
 
             try
             {
-                int Price_res = 0;
+                int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
                 sumPrice += Price_res;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 bool foundPrd = false;
                 for (int i = 0; i < dgvFators.Rows.Count; i++)
                 {
-                    Price_res = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString()) * int.Parse(dgvFators.Rows[i].Cells[3].Value.ToString());
                     if (int.Parse(dgvFators.Rows[i].Cells[0].Value.ToString()) == int.Parse(txtFCode.Text))
                     {
                         int dgvAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
                         dgvAmount += int.Parse(txtFAmount.Text);
                         dgvFators.Rows[i].Cells[2].Value = dgvAmount;
+                        int SumPriceDgv = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString()) * int.Parse(dgvFators.Rows[i].Cells[3].Value.ToString());
+                        dgvFators.Rows[i].Cells[4].Value = SumPriceDgv;
                         foundPrd = true;
                         break;
                     }
@@ -721,20 +722,17 @@ namespace KiyanBabyShopCSProject
         private void btnPrintFactor_Click(object sender, EventArgs e)
         {
 
-            //printFactor(this.PanelPrint);
-            //dgvFators.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
-            //dgvFators.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
             dgvFators.Columns["column6"].Visible = false;
             DGVPrinter printerFcator = new DGVPrinter();
 
             printerFcator.TitleFont = new Font("B Titr", 16, FontStyle.Bold);
-            printerFcator.Title = "برگه فاکتور " + lblFCutumoerName.Text + "\n" +
+            printerFcator.Title = "برگه فاکتور " + "\n" +
                 "تاریخ: " + FactorPrintDate
                 ;
 
             printerFcator.SubTitleFont = new Font("B Titr", 16, FontStyle.Bold);
-            printerFcator.SubTitle = "قیمت مجموع: " + Price_result.Text + "\n\n";
+            printerFcator.SubTitle = "نام: " + lblFCutumoerName.Text + "                        " + "آدرس: " + lblFCutumoerLoc.Text + "                        " + "تلفن: " + lblFCutumoerTel.Text + "                        " + "قیمت مجموع: " + Price_result.Text +
+                "\n\n" ;
             printerFcator.TitleAlignment = StringAlignment.Far;
             printerFcator.SubTitleAlignment = StringAlignment.Near;
 
@@ -744,7 +742,10 @@ namespace KiyanBabyShopCSProject
             printerFcator.PageNumberInHeader = false;
             printerFcator.PorportionalColumns = true;
             printerFcator.HeaderCellAlignment = StringAlignment.Near;
-            //printerFcator.Footer = "";
+
+            printerFcator.FooterFont = new Font("B Titr", 16, FontStyle.Bold);
+
+            printerFcator.Footer = "شماره فاکتور: " + lblFactorId.Text;
             printerFcator.FooterSpacing = 15;
             printerFcator.printDocument.DefaultPageSettings.Landscape = true;
             printerFcator.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
