@@ -721,20 +721,18 @@ namespace KiyanBabyShopCSProject
 
         private void btnPrintFactor_Click(object sender, EventArgs e)
         {
-
             dgvFators.Columns["column6"].Visible = false;
             DGVPrinter printerFcator = new DGVPrinter();
 
-            printerFcator.TitleFont = new Font("B Titr", 16, FontStyle.Bold);
+            printerFcator.TitleFont = new Font("B Titr", 12, FontStyle.Bold);
             printerFcator.Title = "برگه فاکتور " + "\n" +
-                "تاریخ: " + FactorPrintDate
+                "تاریخ: " + FactorPrintDate + "\n" + "نام: " + lblFCutumoerName.Text
                 ;
 
-            printerFcator.SubTitleFont = new Font("B Titr", 16, FontStyle.Bold);
-            printerFcator.SubTitle = "نام: " + lblFCutumoerName.Text + "                        " + "آدرس: " + lblFCutumoerLoc.Text + "                        " + "تلفن: " + lblFCutumoerTel.Text + "                        " + "قیمت مجموع: " + Price_result.Text +
-                "\n\n" ;
+            printerFcator.SubTitleFont = new Font("B Titr", 12, FontStyle.Bold);
+            printerFcator.SubTitle = "آدرس: " + lblFCutumoerLoc.Text + "               " + "تلفن: " + lblFCutumoerTel.Text + "               " + "مبلغ قابل پرداخت: " + Price_result.Text + "\n\n";
             printerFcator.TitleAlignment = StringAlignment.Far;
-            printerFcator.SubTitleAlignment = StringAlignment.Near;
+            printerFcator.SubTitleAlignment = StringAlignment.Far;
 
 
             printerFcator.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
