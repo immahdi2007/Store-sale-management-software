@@ -42,6 +42,8 @@ namespace KiyanBabyShopCSProject
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
+            this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
             this.kiyanDbDataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
             this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
@@ -241,6 +243,10 @@ namespace KiyanBabyShopCSProject
                 customersTableAdapter.Fill(kiyanDbDataSet.Customers);
                 dataGridView1.ClearSelection();
                 txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = "";
+            }
+            if(tabControl1.SelectedIndex == 3)
+            {
+                ShowFinishedPrd();
             }
         }
 
@@ -732,6 +738,26 @@ namespace KiyanBabyShopCSProject
             printerFcator.PrintDataGridView(dgvFators);
             dgvFators.Columns["column6"].Visible = true;
         }
-        
+
+        private void ShowFinishedPrd()
+        {
+            kiyanDbDataSet.Products.Clear();
+            productsTableAdapter.SelectedFinishedPrd(kiyanDbDataSet.Products);
+            dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            kiyanDbDataSet.Products.Clear();
+            productsTableAdapter.SelectedFinishedPrd(kiyanDbDataSet.Products);
+            dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            kiyanDbDataSet.Products.Clear();
+            productsTableAdapter.SelectedBelow3Prd(kiyanDbDataSet.Products);
+            dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
+        }
     }
 }
