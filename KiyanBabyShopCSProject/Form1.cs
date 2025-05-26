@@ -22,6 +22,7 @@ namespace KiyanBabyShopCSProject
         bool FcodeSucc = false;
         bool FcodeSucc_cus = false;
         bool isStockValid = false;
+        bool SubmitFactorOk = false;
 
         int sumPrice = 0;
         int FactorCode = 0;
@@ -62,6 +63,7 @@ namespace KiyanBabyShopCSProject
             //}
             btnShopCart.Enabled = false;
             SubmitFactor.Enabled = false;
+            SubmitFactorOk = false;
 
 
             try
@@ -373,6 +375,10 @@ namespace KiyanBabyShopCSProject
                 }
                 int minusPrice = int.Parse(dgvFators.Rows[dgvFators.CurrentCell.RowIndex].Cells[4].Value.ToString());
                 sumPrice -= minusPrice;
+                if (sumPrice < 0)
+                {
+                    sumPrice = 0;
+                }
                 Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
                 dgvFators.Rows.RemoveAt(e.RowIndex);
                 txtFCode.Text = txtFAmount.Text = "";
@@ -565,14 +571,43 @@ namespace KiyanBabyShopCSProject
             {
                 MessageBox.Show("مشتری دیگر در دیتا بیس وجود ندارد", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 FcodeSucc_cus = false;
+                SubmitFactorOk = false;
                 CheckEnabaledBtnShopCart();
                 return;
             }
-            
+
+
+
+
+
+
             string CustomerCode = txtCustomerCode.Text;
             try
             {
+
                 factorsTableAdapter.InsertQuery(CustomerCode, Fdate);
+                int FactorCode = (int)factorsTableAdapter.GetFactorCode();
+                lblFactorId.Text = (FactorCode).ToString();
+
+                DialogResult FucSubSucces = MessageBox.Show(
+                "فاکتور با کد فاکتور" + " " + FactorCode.ToString()
+                + " " + "در دیتا بیس ثبت شد\n" + "آیا مایل به چاپ فاکتور هستید؟"
+                , "عملیات موفق",
+                MessageBoxButtons.YesNoCancel
+                , MessageBoxIcon.Question
+                );
+                if (FucSubSucces == DialogResult.Yes)
+                {
+                    PrinterFactor();
+                }
+                else if (FucSubSucces == DialogResult.Cancel)
+                {
+                    factorsTableAdapter.DeleteQuery(FactorCode);
+                    return;
+                }
+
+
+                lblFactorId.Text = (FactorCode + 1).ToString();
 
                 //for minus the number of prdStock
                 for (int i = 0; i < dgvFators.Rows.Count; i++) {
@@ -586,8 +621,6 @@ namespace KiyanBabyShopCSProject
                     {
                         int prdStock = int.Parse(kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString());
                         int finalAmount = prdAmount;
-                        
-                        //minusStock = prdStock - prdAmount;
                         if (prdAmount > prdStock)
                         {
                             finalAmount = prdStock;
@@ -606,28 +639,26 @@ namespace KiyanBabyShopCSProject
 
 
                         //submit in factorItem
-                        factorItemsTableAdapter.InsertQuery(((int)factorsTableAdapter.GetFactorCode()).ToString(), prdCode, finalAmount);
+                        factorItemsTableAdapter.InsertQuery(FactorCode.ToString(), prdCode, finalAmount);
                     }
                 }
+
+                txtCustomerCode.ReadOnly = false;
+                button6.Enabled = true;
+                CusToFac.Enabled = true;
+                SubmitFactorOk = true;
                 txtFCode.Text =
                 txtFAmount.Text =
                 txtCustomerCode.Text =
                 lblFCutumoerLoc.Text =
                 Price_result.Text = "";
                 dgvFators.Rows.Clear();
-                int FactorCode = (int)factorsTableAdapter.GetFactorCode() + 1;
-                lblFactorId.Text = FactorCode.ToString();
                 SubmitFactor.Enabled = false;
-
-
-                MessageBox.Show("فاکتور با کد فاکتور" + " " + (FactorCode - 1).ToString() + " " + "در دیتا بیس ثبت شد" , "عملیات موفق", MessageBoxButtons.OK , MessageBoxIcon.Information);
-                txtCustomerCode.ReadOnly = false;
-                button6.Enabled = true;
-                CusToFac.Enabled = true;
             }
             catch(Exception ee)
             {
                 MessageBox.Show("خطا در ثبت فاکتور" + ee.Message , "" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                SubmitFactorOk = false;
             }
             
         }
@@ -671,55 +702,7 @@ namespace KiyanBabyShopCSProject
             CusToFac.Enabled = true;
         }
 
-        private void printFactor(Panel pnl)
-        {
-            PrinterSettings pf = new PrinterSettings();
-            PanelPrint = pnl;
-            getPrintArea(pnl);
-
-            //PaperSize a5Size = new PaperSize("A5", 583, 827);
-            //printDocument1.DefaultPageSettings.PaperSize = a5Size;
-
-            printPreviewDialog1.Document = printDocument1;
-            //printDocument1.DefaultPageSettings.Landscape = true;
-
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
-            printPreviewDialog1.ShowDialog(); 
-
-
-        }
-
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            Rectangle pageArea = e.PageBounds;
-            e.Graphics.DrawImage(memoryImage, (pageArea.Width / 2) - (this.PanelPrint.Width / 2), this.PanelPrint.Location.Y);
-
-        }
-
-        private Bitmap memoryImage;
-
-        private void getPrintArea(Panel pnl)
-        {
-            //Size orginalSize = pnl.Size;
-
-            //pnl.Height = pnl.PreferredSize.Height;
-
-
-            float scale = 2.0f;
-            int width = (int)(pnl.Width * scale);
-            int height = (int)(pnl.Height * scale);
-            memoryImage = new Bitmap(width, height);
-
-            using (Graphics g = Graphics.FromImage(memoryImage))
-            {
-                g.ScaleTransform(scale, scale);
-                pnl.DrawToBitmap(memoryImage, new Rectangle(0, 0, width, height));
-            }
-
-            //pnl.Size = orginalSize;
-        }
-
-        private void btnPrintFactor_Click(object sender, EventArgs e)
+        private void PrinterFactor()
         {
             dgvFators.Columns["column6"].Visible = false;
             DGVPrinter printerFcator = new DGVPrinter();
@@ -736,7 +719,6 @@ namespace KiyanBabyShopCSProject
 
 
             printerFcator.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            //printerFcator.PageNumbers = true;
             printerFcator.PageNumberInHeader = false;
             printerFcator.PorportionalColumns = true;
             printerFcator.HeaderCellAlignment = StringAlignment.Near;
@@ -749,7 +731,7 @@ namespace KiyanBabyShopCSProject
             printerFcator.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
             printerFcator.PrintDataGridView(dgvFators);
             dgvFators.Columns["column6"].Visible = true;
-
         }
+        
     }
 }
