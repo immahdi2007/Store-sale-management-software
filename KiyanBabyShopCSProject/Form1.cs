@@ -318,7 +318,7 @@ namespace KiyanBabyShopCSProject
             {
                 int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
                 sumPrice += Price_res;
-                Price_result.Text = sumPrice.ToString("N0") + " " + "تومان";
+                Price_result.Text = sumPrice.ToString("N0") + " " + "ریال";
                 bool foundPrd = false;
                 for (int i = 0; i < dgvFators.Rows.Count; i++)
                 {
@@ -744,6 +744,10 @@ namespace KiyanBabyShopCSProject
             kiyanDbDataSet.Products.Clear();
             productsTableAdapter.SelectedFinishedPrd(kiyanDbDataSet.Products);
             dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
+
+            decimal totalPrice = Convert.ToDecimal(productsTableAdapter.GetTotalInvertoryPrice());
+
+            lblMoney.Text = totalPrice.ToString("N0") + " " + "ریال";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -759,5 +763,12 @@ namespace KiyanBabyShopCSProject
             productsTableAdapter.SelectedBelow3Prd(kiyanDbDataSet.Products);
             dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
         }
+
+        private void btnMoney_Click(object sender, EventArgs e)
+        {
+            decimal totalPrice = Convert.ToDecimal(productsTableAdapter.GetTotalInvertoryPrice());
+            
+            lblMoney.Text = totalPrice.ToString("N0") + " " + "ریال";
+        }
     }
-}
+}   
