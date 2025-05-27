@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelPrint = new System.Windows.Forms.Panel();
@@ -108,15 +112,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.prdCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.kiyanDbDataSet = new KiyanBabyShopCSProject.KiyanDbDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.srchResultLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -142,15 +137,38 @@
             this.label21 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.CustomerCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerFristNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dgvFinishedPrd = new System.Windows.Forms.DataGridView();
+            this.prdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.productsFactorItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnMoney = new System.Windows.Forms.Button();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.prdCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prdColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.kiyanDbDataSet = new KiyanBabyShopCSProject.KiyanDbDataSet();
+            this.customerFristNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prdCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.ProductsTableAdapter();
             this.customersTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.CustomersTableAdapter();
@@ -158,16 +176,11 @@
             this.factorsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.FactorsTableAdapter();
             this.factorItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.factorItemsTableAdapter = new KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters.FactorItemsTableAdapter();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.dgvFinishedPrd = new System.Windows.Forms.DataGridView();
-            this.productsFactorItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prdCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prdStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGetAllFactors = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.PanelPrint.SuspendLayout();
@@ -180,19 +193,21 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFinishedPrd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsFactorItemsBindingSource)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factorItemsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFinishedPrd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsFactorItemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -214,6 +229,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.PanelPrint);
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -222,7 +238,6 @@
             this.tabPage1.Size = new System.Drawing.Size(774, 563);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "فاکتور";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // PanelPrint
             // 
@@ -243,19 +258,19 @@
             this.dgvFators.AllowUserToDeleteRows = false;
             this.dgvFators.AllowUserToResizeColumns = false;
             this.dgvFators.AllowUserToResizeRows = false;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dgvFators.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dgvFators.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFators.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFators.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvFators.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvFators.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvFators.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvFators.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFators.ColumnHeadersHeight = 35;
             this.dgvFators.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvFators.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -265,14 +280,14 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFators.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFators.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFators.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvFators.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvFators.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -696,7 +711,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.textBox7);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.label10);
@@ -997,20 +1012,20 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeight = 35;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1022,14 +1037,14 @@
             this.prdColorDataGridViewTextBoxColumn,
             this.categoryNameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.productsBindingSource1;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -1044,85 +1059,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(766, 319);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // prdCodeDataGridViewTextBoxColumn
-            // 
-            this.prdCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.prdCodeDataGridViewTextBoxColumn.DataPropertyName = "prdCode";
-            this.prdCodeDataGridViewTextBoxColumn.FillWeight = 45.76589F;
-            this.prdCodeDataGridViewTextBoxColumn.HeaderText = "کد کالا";
-            this.prdCodeDataGridViewTextBoxColumn.Name = "prdCodeDataGridViewTextBoxColumn";
-            this.prdCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdCodeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prdCodeDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // prdNameDataGridViewTextBoxColumn
-            // 
-            this.prdNameDataGridViewTextBoxColumn.DataPropertyName = "prdName";
-            this.prdNameDataGridViewTextBoxColumn.FillWeight = 195.8159F;
-            this.prdNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
-            this.prdNameDataGridViewTextBoxColumn.Name = "prdNameDataGridViewTextBoxColumn";
-            this.prdNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // prdStockDataGridViewTextBoxColumn
-            // 
-            this.prdStockDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.prdStockDataGridViewTextBoxColumn.DataPropertyName = "prdStock";
-            this.prdStockDataGridViewTextBoxColumn.FillWeight = 32.33397F;
-            this.prdStockDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
-            this.prdStockDataGridViewTextBoxColumn.Name = "prdStockDataGridViewTextBoxColumn";
-            this.prdStockDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdStockDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prdStockDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // prdPriceDataGridViewTextBoxColumn
-            // 
-            this.prdPriceDataGridViewTextBoxColumn.DataPropertyName = "prdPrice";
-            this.prdPriceDataGridViewTextBoxColumn.FillWeight = 81.76589F;
-            this.prdPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
-            this.prdPriceDataGridViewTextBoxColumn.Name = "prdPriceDataGridViewTextBoxColumn";
-            this.prdPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // prdSizeDataGridViewTextBoxColumn
-            // 
-            this.prdSizeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.prdSizeDataGridViewTextBoxColumn.DataPropertyName = "prdSize";
-            this.prdSizeDataGridViewTextBoxColumn.FillWeight = 119.9535F;
-            this.prdSizeDataGridViewTextBoxColumn.HeaderText = "سایز کالا";
-            this.prdSizeDataGridViewTextBoxColumn.Name = "prdSizeDataGridViewTextBoxColumn";
-            this.prdSizeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdSizeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.prdSizeDataGridViewTextBoxColumn.Width = 86;
-            // 
-            // prdColorDataGridViewTextBoxColumn
-            // 
-            this.prdColorDataGridViewTextBoxColumn.DataPropertyName = "prdColor";
-            this.prdColorDataGridViewTextBoxColumn.FillWeight = 81.76589F;
-            this.prdColorDataGridViewTextBoxColumn.HeaderText = "رنگ کالا";
-            this.prdColorDataGridViewTextBoxColumn.Name = "prdColorDataGridViewTextBoxColumn";
-            this.prdColorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prdColorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.FillWeight = 146.599F;
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "نوع کالا";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // productsBindingSource1
-            // 
-            this.productsBindingSource1.DataMember = "Products";
-            this.productsBindingSource1.DataSource = this.kiyanDbDataSet;
-            // 
-            // kiyanDbDataSet
-            // 
-            this.kiyanDbDataSet.DataSetName = "KiyanDbDataSet";
-            this.kiyanDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -1161,6 +1097,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.White;
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.srchResultLbl2);
             this.tabPage3.Controls.Add(this.label27);
@@ -1175,7 +1112,6 @@
             this.tabPage3.Size = new System.Drawing.Size(774, 563);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "مشتری";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
@@ -1436,20 +1372,20 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView2.ColumnHeadersHeight = 35;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1459,14 +1395,14 @@
             this.customerMobileDataGridViewTextBoxColumn,
             this.CustomerLocation});
             this.dataGridView2.DataSource = this.customersBindingSource;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -1489,6 +1425,250 @@
             this.CustomerCode.HeaderText = "کد مشتری";
             this.CustomerCode.Name = "CustomerCode";
             this.CustomerCode.ReadOnly = true;
+            // 
+            // CustomerLocation
+            // 
+            this.CustomerLocation.DataPropertyName = "CustomerLocation";
+            this.CustomerLocation.HeaderText = "آدرس";
+            this.CustomerLocation.Name = "CustomerLocation";
+            this.CustomerLocation.ReadOnly = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridView3);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.btnGetAllFactors);
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.dgvFinishedPrd);
+            this.tabPage4.Controls.Add(this.groupBox7);
+            this.tabPage4.Location = new System.Drawing.Point(4, 32);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.tabPage4.Size = new System.Drawing.Size(774, 563);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "گزارش";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(550, 74);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(210, 37);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "لیست محصولات در حال اتمام";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(340, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(204, 37);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "لیست محصولات به اتمام رسیده";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dgvFinishedPrd
+            // 
+            this.dgvFinishedPrd.AllowUserToAddRows = false;
+            this.dgvFinishedPrd.AllowUserToDeleteRows = false;
+            this.dgvFinishedPrd.AllowUserToResizeColumns = false;
+            this.dgvFinishedPrd.AllowUserToResizeRows = false;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dgvFinishedPrd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvFinishedPrd.AutoGenerateColumns = false;
+            this.dgvFinishedPrd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFinishedPrd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvFinishedPrd.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvFinishedPrd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvFinishedPrd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvFinishedPrd.ColumnHeadersHeight = 25;
+            this.dgvFinishedPrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvFinishedPrd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.prdCodeDataGridViewTextBoxColumn1,
+            this.prdName,
+            this.prdStock});
+            this.dgvFinishedPrd.DataSource = this.productsBindingSource;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFinishedPrd.DefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvFinishedPrd.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvFinishedPrd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvFinishedPrd.Location = new System.Drawing.Point(4, 134);
+            this.dgvFinishedPrd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.dgvFinishedPrd.Name = "dgvFinishedPrd";
+            this.dgvFinishedPrd.ReadOnly = true;
+            this.dgvFinishedPrd.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvFinishedPrd.RowHeadersVisible = false;
+            this.dgvFinishedPrd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dgvFinishedPrd.RowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvFinishedPrd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFinishedPrd.Size = new System.Drawing.Size(766, 423);
+            this.dgvFinishedPrd.TabIndex = 5;
+            // 
+            // prdName
+            // 
+            this.prdName.DataPropertyName = "prdName";
+            this.prdName.HeaderText = "نام کالا";
+            this.prdName.Name = "prdName";
+            this.prdName.ReadOnly = true;
+            // 
+            // prdStock
+            // 
+            this.prdStock.DataPropertyName = "prdStock";
+            this.prdStock.HeaderText = "موجودی کالا";
+            this.prdStock.Name = "prdStock";
+            this.prdStock.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 35.14214F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::KiyanBabyShopCSProject.Properties.Resources.delete_400px;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 49;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // productsFactorItemsBindingSource
+            // 
+            this.productsFactorItemsBindingSource.DataMember = "ProductsFactorItems";
+            this.productsFactorItemsBindingSource.DataSource = this.productsBindingSource;
+            // 
+            // btnMoney
+            // 
+            this.btnMoney.Location = new System.Drawing.Point(210, 19);
+            this.btnMoney.Name = "btnMoney";
+            this.btnMoney.Size = new System.Drawing.Size(210, 37);
+            this.btnMoney.TabIndex = 6;
+            this.btnMoney.Text = "موجودی ریالی انبار";
+            this.btnMoney.UseVisualStyleBackColor = true;
+            this.btnMoney.Click += new System.EventHandler(this.btnMoney_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.lblMoney);
+            this.groupBox7.Controls.Add(this.btnMoney);
+            this.groupBox7.Location = new System.Drawing.Point(340, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(426, 65);
+            this.groupBox7.TabIndex = 7;
+            this.groupBox7.TabStop = false;
+            // 
+            // lblMoney
+            // 
+            this.lblMoney.Location = new System.Drawing.Point(6, 22);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(203, 30);
+            this.lblMoney.TabIndex = 7;
+            this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // prdCodeDataGridViewTextBoxColumn
+            // 
+            this.prdCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.prdCodeDataGridViewTextBoxColumn.DataPropertyName = "prdCode";
+            this.prdCodeDataGridViewTextBoxColumn.FillWeight = 45.76589F;
+            this.prdCodeDataGridViewTextBoxColumn.HeaderText = "کد کالا";
+            this.prdCodeDataGridViewTextBoxColumn.Name = "prdCodeDataGridViewTextBoxColumn";
+            this.prdCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdCodeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.prdCodeDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // prdNameDataGridViewTextBoxColumn
+            // 
+            this.prdNameDataGridViewTextBoxColumn.DataPropertyName = "prdName";
+            this.prdNameDataGridViewTextBoxColumn.FillWeight = 195.8159F;
+            this.prdNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
+            this.prdNameDataGridViewTextBoxColumn.Name = "prdNameDataGridViewTextBoxColumn";
+            this.prdNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // prdStockDataGridViewTextBoxColumn
+            // 
+            this.prdStockDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.prdStockDataGridViewTextBoxColumn.DataPropertyName = "prdStock";
+            this.prdStockDataGridViewTextBoxColumn.FillWeight = 32.33397F;
+            this.prdStockDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
+            this.prdStockDataGridViewTextBoxColumn.Name = "prdStockDataGridViewTextBoxColumn";
+            this.prdStockDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdStockDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.prdStockDataGridViewTextBoxColumn.Width = 89;
+            // 
+            // prdPriceDataGridViewTextBoxColumn
+            // 
+            this.prdPriceDataGridViewTextBoxColumn.DataPropertyName = "prdPrice";
+            this.prdPriceDataGridViewTextBoxColumn.FillWeight = 81.76589F;
+            this.prdPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
+            this.prdPriceDataGridViewTextBoxColumn.Name = "prdPriceDataGridViewTextBoxColumn";
+            this.prdPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdPriceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // prdSizeDataGridViewTextBoxColumn
+            // 
+            this.prdSizeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.prdSizeDataGridViewTextBoxColumn.DataPropertyName = "prdSize";
+            this.prdSizeDataGridViewTextBoxColumn.FillWeight = 119.9535F;
+            this.prdSizeDataGridViewTextBoxColumn.HeaderText = "سایز کالا";
+            this.prdSizeDataGridViewTextBoxColumn.Name = "prdSizeDataGridViewTextBoxColumn";
+            this.prdSizeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdSizeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.prdSizeDataGridViewTextBoxColumn.Width = 86;
+            // 
+            // prdColorDataGridViewTextBoxColumn
+            // 
+            this.prdColorDataGridViewTextBoxColumn.DataPropertyName = "prdColor";
+            this.prdColorDataGridViewTextBoxColumn.FillWeight = 81.76589F;
+            this.prdColorDataGridViewTextBoxColumn.HeaderText = "رنگ کالا";
+            this.prdColorDataGridViewTextBoxColumn.Name = "prdColorDataGridViewTextBoxColumn";
+            this.prdColorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prdColorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.FillWeight = 146.599F;
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "نوع کالا";
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // productsBindingSource1
+            // 
+            this.productsBindingSource1.DataMember = "Products";
+            this.productsBindingSource1.DataSource = this.kiyanDbDataSet;
+            // 
+            // kiyanDbDataSet
+            // 
+            this.kiyanDbDataSet.DataSetName = "KiyanDbDataSet";
+            this.kiyanDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // customerFristNameDataGridViewTextBoxColumn
             // 
@@ -1513,41 +1693,18 @@
             this.customerMobileDataGridViewTextBoxColumn.Name = "customerMobileDataGridViewTextBoxColumn";
             this.customerMobileDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // CustomerLocation
-            // 
-            this.CustomerLocation.DataPropertyName = "CustomerLocation";
-            this.CustomerLocation.HeaderText = "آدرس";
-            this.CustomerLocation.Name = "CustomerLocation";
-            this.CustomerLocation.ReadOnly = true;
-            // 
             // customersBindingSource
             // 
             this.customersBindingSource.DataMember = "Customers";
             this.customersBindingSource.DataSource = this.kiyanDbDataSet;
             // 
-            // tabPage4
+            // prdCodeDataGridViewTextBoxColumn1
             // 
-            this.tabPage4.Controls.Add(this.button3);
-            this.tabPage4.Controls.Add(this.button2);
-            this.tabPage4.Controls.Add(this.dgvFinishedPrd);
-            this.tabPage4.Location = new System.Drawing.Point(4, 32);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tabPage4.Size = new System.Drawing.Size(774, 563);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "گزارش";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 35.14214F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::KiyanBabyShopCSProject.Properties.Resources.delete_400px;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 49;
+            this.prdCodeDataGridViewTextBoxColumn1.DataPropertyName = "prdCode";
+            this.prdCodeDataGridViewTextBoxColumn1.FillWeight = 30F;
+            this.prdCodeDataGridViewTextBoxColumn1.HeaderText = "کد کالا";
+            this.prdCodeDataGridViewTextBoxColumn1.Name = "prdCodeDataGridViewTextBoxColumn1";
+            this.prdCodeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // productsBindingSource
             // 
@@ -1580,116 +1737,86 @@
             // 
             this.factorItemsTableAdapter.ClearBeforeFill = true;
             // 
-            // printPreviewDialog1
+            // btnGetAllFactors
             // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
+            this.btnGetAllFactors.Location = new System.Drawing.Point(130, 74);
+            this.btnGetAllFactors.Name = "btnGetAllFactors";
+            this.btnGetAllFactors.Size = new System.Drawing.Size(204, 37);
+            this.btnGetAllFactors.TabIndex = 6;
+            this.btnGetAllFactors.Text = "نمایش فاکتور ها";
+            this.btnGetAllFactors.UseVisualStyleBackColor = true;
             // 
-            // printDialog1
+            // dataGridView3
             // 
-            this.printDialog1.UseEXDialog = true;
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeColumns = false;
+            this.dataGridView3.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView3.ColumnHeadersHeight = 25;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridView3.DataSource = this.productsBindingSource;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView3.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dataGridView3.Location = new System.Drawing.Point(4, 134);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(766, 423);
+            this.dataGridView3.TabIndex = 8;
             // 
-            // dgvFinishedPrd
+            // dataGridViewTextBoxColumn1
             // 
-            this.dgvFinishedPrd.AllowUserToAddRows = false;
-            this.dgvFinishedPrd.AllowUserToDeleteRows = false;
-            this.dgvFinishedPrd.AllowUserToResizeColumns = false;
-            this.dgvFinishedPrd.AllowUserToResizeRows = false;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dgvFinishedPrd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
-            this.dgvFinishedPrd.AutoGenerateColumns = false;
-            this.dgvFinishedPrd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFinishedPrd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvFinishedPrd.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvFinishedPrd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("B Titr", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvFinishedPrd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
-            this.dgvFinishedPrd.ColumnHeadersHeight = 25;
-            this.dgvFinishedPrd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvFinishedPrd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prdCodeDataGridViewTextBoxColumn1,
-            this.prdName,
-            this.prdStock});
-            this.dgvFinishedPrd.DataSource = this.productsBindingSource;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFinishedPrd.DefaultCellStyle = dataGridViewCellStyle42;
-            this.dgvFinishedPrd.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvFinishedPrd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvFinishedPrd.Location = new System.Drawing.Point(4, 101);
-            this.dgvFinishedPrd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.dgvFinishedPrd.Name = "dgvFinishedPrd";
-            this.dgvFinishedPrd.ReadOnly = true;
-            this.dgvFinishedPrd.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvFinishedPrd.RowHeadersVisible = false;
-            this.dgvFinishedPrd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.dgvFinishedPrd.RowsDefaultCellStyle = dataGridViewCellStyle43;
-            this.dgvFinishedPrd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFinishedPrd.Size = new System.Drawing.Size(766, 456);
-            this.dgvFinishedPrd.TabIndex = 5;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "prdCode";
+            this.dataGridViewTextBoxColumn1.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "کد کالا";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // productsFactorItemsBindingSource
+            // dataGridViewTextBoxColumn2
             // 
-            this.productsFactorItemsBindingSource.DataMember = "ProductsFactorItems";
-            this.productsFactorItemsBindingSource.DataSource = this.productsBindingSource;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "prdName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "نام کالا";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // prdCodeDataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn3
             // 
-            this.prdCodeDataGridViewTextBoxColumn1.DataPropertyName = "prdCode";
-            this.prdCodeDataGridViewTextBoxColumn1.FillWeight = 30F;
-            this.prdCodeDataGridViewTextBoxColumn1.HeaderText = "کد کالا";
-            this.prdCodeDataGridViewTextBoxColumn1.Name = "prdCodeDataGridViewTextBoxColumn1";
-            this.prdCodeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // prdName
-            // 
-            this.prdName.DataPropertyName = "prdName";
-            this.prdName.HeaderText = "نام کالا";
-            this.prdName.Name = "prdName";
-            this.prdName.ReadOnly = true;
-            // 
-            // prdStock
-            // 
-            this.prdStock.DataPropertyName = "prdStock";
-            this.prdStock.HeaderText = "موجودی کالا";
-            this.prdStock.Name = "prdStock";
-            this.prdStock.ReadOnly = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(556, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 37);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "لیست محصولات به اتمام رسیده";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(556, 52);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(210, 37);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "لیست محصولات در حال اتمام";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "prdStock";
+            this.dataGridViewTextBoxColumn3.HeaderText = "موجودی کالا";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // Form1
             // 
@@ -1724,21 +1851,23 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFinishedPrd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsFactorItemsBindingSource)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kiyanDbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factorItemsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFinishedPrd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsFactorItemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1870,6 +1999,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prdStock;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMoney;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.Label lblMoney;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Button btnGetAllFactors;
     }
 }
 
