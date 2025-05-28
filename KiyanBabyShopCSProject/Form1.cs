@@ -261,8 +261,10 @@ namespace KiyanBabyShopCSProject
                     if (kiyanDbDataSet.Products.Rows.Count > 0)
                     {
                         txtFname.ForeColor = Color.SeaGreen;
+                        int txtFPRICE = Convert.ToInt32(kiyanDbDataSet.Products.Rows[0]["prdPrice"]);
                         txtFname.Text = kiyanDbDataSet.Products.Rows[0]["prdName"].ToString();
-                        txtFPrice.Text = kiyanDbDataSet.Products.Rows[0]["prdPrice"].ToString();
+                        txtFPrice.Text = txtFPRICE.ToString("N0");
+                        //txtFPrice.Text = kiyanDbDataSet.Products.Rows[0]["prdPrice"].ToString();
                         txtFStock.Text = kiyanDbDataSet.Products.Rows[0]["prdStock"].ToString();
                         txtFAmount.Text = "1";
                         FcodeSucc = true;
@@ -274,25 +276,15 @@ namespace KiyanBabyShopCSProject
                         txtFPrice.Text = txtFStock.Text = txtFAmount.Text = "";
                         FcodeSucc = false;
                     }
-                } catch
+                } catch (Exception exx)
                 {
-                    MessageBox.Show("!لطفا تعداد محصول را صحیح وارد کنید");
+                    MessageBox.Show("!لطفا تعداد محصول را صحیح وارد کنید" + exx.Message);
                 }
             } else
             {
                 txtFname.Text = txtFPrice.Text = txtFStock.Text = txtFAmount.Text = "";
                 FcodeSucc = false;
             }
-
-            //if (FcodeSucc && FcodeSucc_cus)
-            //{
-            //    btnShopCart.Enabled = true;
-
-            //}
-            //else
-            //{
-            //    btnShopCart.Enabled = false;
-            //}
             CheckEnabaledBtnShopCart();
         }
 
@@ -316,7 +308,7 @@ namespace KiyanBabyShopCSProject
 
             try
             {
-                int Price_res = int.Parse(txtFPrice.Text) * int.Parse(txtFAmount.Text);
+                int Price_res = Convert.ToInt32(txtFPrice.Text.Replace(",","")) * int.Parse(txtFAmount.Text);
                 sumPrice += Price_res;
                 Price_result.Text = sumPrice.ToString("N0") + " " + "ریال";
                 bool foundPrd = false;
@@ -327,8 +319,8 @@ namespace KiyanBabyShopCSProject
                         int dgvAmount = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString());
                         dgvAmount += int.Parse(txtFAmount.Text);
                         dgvFators.Rows[i].Cells[2].Value = dgvAmount;
-                        int SumPriceDgv = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString()) * int.Parse(dgvFators.Rows[i].Cells[3].Value.ToString());
-                        dgvFators.Rows[i].Cells[4].Value = SumPriceDgv;
+                        int SumPriceDgv = int.Parse(dgvFators.Rows[i].Cells[2].Value.ToString()) * Convert.ToInt32(dgvFators.Rows[i].Cells[3].Value.ToString().Replace(",", ""));
+                        dgvFators.Rows[i].Cells[4].Value = SumPriceDgv.ToString("N0");
                         foundPrd = true;
                         break;
                     }
@@ -344,7 +336,7 @@ namespace KiyanBabyShopCSProject
                     txtFname.Text,
                     txtFAmount.Text,
                     txtFPrice.Text,
-                    Price_res
+                    Price_res.ToString("N0")
                     );
                 }
             }
@@ -638,7 +630,7 @@ namespace KiyanBabyShopCSProject
                                 );
                         }
 
-                        string prdPrice = dgvFators.Rows[i].Cells[4].Value.ToString();
+                        string prdPrice = dgvFators.Rows[i].Cells[4].Value.ToString().Replace(",", "");
                         int minusStock = prdStock - finalAmount;
                         productsTableAdapter.UpdatePrdStock(minusStock.ToString() , prdCode);
                         productsTableAdapter.Fill(kiyanDbDataSet.Products);
@@ -752,6 +744,8 @@ namespace KiyanBabyShopCSProject
 
         private void button2_Click(object sender, EventArgs e)
         {
+            dgvShowAllfactors.Visible = false;
+            dgvFinishedPrd.Visible = true;
             kiyanDbDataSet.Products.Clear();
             productsTableAdapter.SelectedFinishedPrd(kiyanDbDataSet.Products);
             dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
@@ -759,6 +753,8 @@ namespace KiyanBabyShopCSProject
 
         private void button3_Click(object sender, EventArgs e)
         {
+            dgvShowAllfactors.Visible = false;
+            dgvFinishedPrd.Visible = true;
             kiyanDbDataSet.Products.Clear();
             productsTableAdapter.SelectedBelow3Prd(kiyanDbDataSet.Products);
             dgvFinishedPrd.DataSource = kiyanDbDataSet.Products;
@@ -778,18 +774,18 @@ namespace KiyanBabyShopCSProject
 
         private void GetAllFactorsAndShow()
         {
-
-            //customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+            dgvFinishedPrd.Visible = false;
+            //dgvShowAllfactors.Visible = true;
             factorsTableAdapter.Fill(kiyanDbDataSet.Factors);
             customersTableAdapter.Fill(kiyanDbDataSet.Customers);
             factorItemsTableAdapter.Fill(kiyanDbDataSet.FactorItems);
 
             DataTable ResultFactors = new DataTable();
-            ResultFactors.Columns.Add("FactorCode", typeof(int));
-            ResultFactors.Columns.Add("CustomerCode", typeof(int));
-            ResultFactors.Columns.Add("CustomerName", typeof(string));
-            ResultFactors.Columns.Add("FactorDate", typeof(string));
-            ResultFactors.Columns.Add("SumPrice", typeof(int));
+            ResultFactors.Columns.Add("کد فاکتور", typeof(int));
+            ResultFactors.Columns.Add("کد مشتری", typeof(int));
+            ResultFactors.Columns.Add("نام مشتری", typeof(string));
+            ResultFactors.Columns.Add("تاریخ فاکتور", typeof(string));
+            ResultFactors.Columns.Add("مبلغ قابل یداخت", typeof(string));
 
             foreach (DataRow FactorRow in kiyanDbDataSet.Factors.Rows)
             {
@@ -798,13 +794,10 @@ namespace KiyanBabyShopCSProject
                 string CustomerCode = FactorRow["CustomerCode"].ToString();
                 string CustomerName = "";
 
-                Console.WriteLine("CostomerCode: " + CustomerCode + "factorCode: " + FactorCode);
-
-
                 foreach (DataRow CusRow in kiyanDbDataSet.Customers.Rows)
                 {
 
-                    string cCode = CusRow["CustomerCode"] != DBNull.Value ? (CusRow["CustomerCode"]).ToString() : " ";
+                    string cCode = CusRow["CustomerCode1"] != DBNull.Value ? (CusRow["CustomerCode1"]).ToString() : " ";
 
                     if (cCode == CustomerCode)
                     {
@@ -814,38 +807,31 @@ namespace KiyanBabyShopCSProject
                         CustomerName += FristName + " " + LastName;
                         break;
                     }
-                    Console.WriteLine("CustomerCode Method:" + cCode);
-
                 }
 
 
                 int SumPrice = 0;
                 foreach (DataRow FacItemRow in kiyanDbDataSet.FactorItems.Rows)
                 {
-                    string fiCode = FacItemRow["FactorCode"] != DBNull.Value ? (FacItemRow["FactorCode"]).ToString() : "";
+                    string fiCode = FacItemRow["FactorCode1"] != DBNull.Value ? (FacItemRow["FactorCode1"]).ToString() : "";
 
                     if (fiCode == FactorCode)
                     {
                         int price = FacItemRow["prdPrice"] != DBNull.Value ? Convert.ToInt32(FacItemRow["prdPrice"]) : 0;
-                        int amount = FacItemRow["prdAmount"] != DBNull.Value ? Convert.ToInt32(FacItemRow["prdAmount"]) : 0;
 
-
-
-                        //int prdPrice = price;
-                        //int prdAmount = amount;
-                        SumPrice = price * amount;
+                        SumPrice += price;
                     }
-
-                    Console.WriteLine("FactorItem Method:" + fiCode);
                 }
 
-                Console.WriteLine("Adding: " + FactorCode + " CustomerCode: " + CustomerCode + " -  " + sumPrice);
-
-                ResultFactors.Rows.Add(FactorCode, CustomerCode, CustomerName, Factordate, SumPrice);
+                ResultFactors.Rows.Add(FactorCode, CustomerCode, CustomerName, Factordate, SumPrice.ToString("N0") + " " + "ریال");
             }
 
-            dgvShowAllfactors.DataSource = ResultFactors;
-
+            dgvFinishedPrd.DataSource = null;
+            dgvFinishedPrd.Rows.Clear();
+            dgvFinishedPrd.Columns.Clear();
+            dgvFinishedPrd.DataSource = ResultFactors;
+            //dgvShowAllfactors.Columns[0].Width = 80;
+            //dgvShowAllfactors.Columns[1].Width = 80;
         }
     }
 }   
