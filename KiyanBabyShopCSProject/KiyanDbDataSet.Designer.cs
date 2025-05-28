@@ -1053,6 +1053,14 @@ namespace KiyanBabyShopCSProject {
             
             private global::System.Data.DataColumn columnprdAmount;
             
+            private global::System.Data.DataColumn columnFactorCode1;
+            
+            private global::System.Data.DataColumn columnprdCode1;
+            
+            private global::System.Data.DataColumn columnprdPrice;
+            
+            private global::System.Data.DataColumn columnprdAmount1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FactorItemsDataTable() {
@@ -1112,6 +1120,38 @@ namespace KiyanBabyShopCSProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FactorCode1Column {
+                get {
+                    return this.columnFactorCode1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prdCode1Column {
+                get {
+                    return this.columnprdCode1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prdPriceColumn {
+                get {
+                    return this.columnprdPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prdAmount1Column {
+                get {
+                    return this.columnprdAmount1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1147,12 +1187,16 @@ namespace KiyanBabyShopCSProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FactorItemsRow AddFactorItemsRow(FactorsRow parentFactorsRowByFactorsFactorItems, ProductsRow parentProductsRowByProductsFactorItems, string prdAmount) {
+            public FactorItemsRow AddFactorItemsRow(FactorsRow parentFactorsRowByFactorsFactorItems, ProductsRow parentProductsRowByProductsFactorItems, string prdAmount, int FactorCode1, int prdCode1, string prdPrice, int prdAmount1) {
                 FactorItemsRow rowFactorItemsRow = ((FactorItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        prdAmount};
+                        prdAmount,
+                        FactorCode1,
+                        prdCode1,
+                        prdPrice,
+                        prdAmount1};
                 if ((parentFactorsRowByFactorsFactorItems != null)) {
                     columnValuesArray[0] = parentFactorsRowByFactorsFactorItems[0];
                 }
@@ -1166,10 +1210,12 @@ namespace KiyanBabyShopCSProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FactorItemsRow FindByFactorCodeprdCode(string FactorCode, string prdCode) {
+            public FactorItemsRow FindByFactorCode1prdCode1prdCodeFactorCode(int FactorCode1, int prdCode1, string prdCode, string FactorCode) {
                 return ((FactorItemsRow)(this.Rows.Find(new object[] {
-                            FactorCode,
-                            prdCode})));
+                            FactorCode1,
+                            prdCode1,
+                            prdCode,
+                            FactorCode})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1192,6 +1238,10 @@ namespace KiyanBabyShopCSProject {
                 this.columnFactorCode = base.Columns["FactorCode"];
                 this.columnprdCode = base.Columns["prdCode"];
                 this.columnprdAmount = base.Columns["prdAmount"];
+                this.columnFactorCode1 = base.Columns["FactorCode1"];
+                this.columnprdCode1 = base.Columns["prdCode1"];
+                this.columnprdPrice = base.Columns["prdPrice"];
+                this.columnprdAmount1 = base.Columns["prdAmount1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1203,14 +1253,30 @@ namespace KiyanBabyShopCSProject {
                 base.Columns.Add(this.columnprdCode);
                 this.columnprdAmount = new global::System.Data.DataColumn("prdAmount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprdAmount);
+                this.columnFactorCode1 = new global::System.Data.DataColumn("FactorCode1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFactorCode1);
+                this.columnprdCode1 = new global::System.Data.DataColumn("prdCode1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprdCode1);
+                this.columnprdPrice = new global::System.Data.DataColumn("prdPrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprdPrice);
+                this.columnprdAmount1 = new global::System.Data.DataColumn("prdAmount1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprdAmount1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnFactorCode,
-                                this.columnprdCode}, true));
+                                this.columnFactorCode1,
+                                this.columnprdCode1,
+                                this.columnprdCode,
+                                this.columnFactorCode}, true));
                 this.columnFactorCode.AllowDBNull = false;
                 this.columnFactorCode.MaxLength = 255;
                 this.columnprdCode.AllowDBNull = false;
                 this.columnprdCode.MaxLength = 255;
                 this.columnprdAmount.MaxLength = 255;
+                this.columnFactorCode1.AllowDBNull = false;
+                this.columnFactorCode1.Caption = "FactorCode";
+                this.columnprdCode1.AllowDBNull = false;
+                this.columnprdCode1.Caption = "prdCode";
+                this.columnprdPrice.MaxLength = 255;
+                this.columnprdAmount1.Caption = "prdAmount";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2232,6 +2298,60 @@ namespace KiyanBabyShopCSProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int FactorCode1 {
+                get {
+                    return ((int)(this[this.tableFactorItems.FactorCode1Column]));
+                }
+                set {
+                    this[this.tableFactorItems.FactorCode1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prdCode1 {
+                get {
+                    return ((int)(this[this.tableFactorItems.prdCode1Column]));
+                }
+                set {
+                    this[this.tableFactorItems.prdCode1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string prdPrice {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactorItems.prdPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prdPrice\' in table \'FactorItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactorItems.prdPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prdAmount1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableFactorItems.prdAmount1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prdAmount1\' in table \'FactorItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactorItems.prdAmount1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FactorsRow FactorsRow {
                 get {
                     return ((FactorsRow)(this.GetParentRow(this.Table.ParentRelations["FactorsFactorItems"])));
@@ -2262,6 +2382,30 @@ namespace KiyanBabyShopCSProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetprdAmountNull() {
                 this[this.tableFactorItems.prdAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprdPriceNull() {
+                return this.IsNull(this.tableFactorItems.prdPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprdPriceNull() {
+                this[this.tableFactorItems.prdPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprdAmount1Null() {
+                return this.IsNull(this.tableFactorItems.prdAmount1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprdAmount1Null() {
+                this[this.tableFactorItems.prdAmount1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -3700,40 +3844,49 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "FactorItems";
-            tableMapping.ColumnMappings.Add("FactorCode", "FactorCode");
-            tableMapping.ColumnMappings.Add("prdCode", "prdCode");
-            tableMapping.ColumnMappings.Add("prdAmount", "prdAmount");
+            tableMapping.ColumnMappings.Add("FactorCode", "FactorCode1");
+            tableMapping.ColumnMappings.Add("prdCode", "prdCode1");
+            tableMapping.ColumnMappings.Add("prdPrice", "prdPrice");
+            tableMapping.ColumnMappings.Add("prdAmount", "prdAmount1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `FactorItems` WHERE ((`FactorCode` = ?) AND (`prdCode` = ?) AND ((? =" +
-                " 1 AND `prdAmount` IS NULL) OR (`prdAmount` = ?)))";
+                " 1 AND `prdPrice` IS NULL) OR (`prdPrice` = ?)) AND ((? = 1 AND `prdAmount` IS N" +
+                "ULL) OR (`prdAmount` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FactorCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FactorCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_prdPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdPrice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdAmount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `FactorItems` (`FactorCode`, `prdCode`, `prdAmount`) VALUES (?, ?, ?)" +
-                "";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `FactorItems` (`FactorCode`, `prdCode`, `prdPrice`, `prdAmount`) VALU" +
+                "ES (?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdAmount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdPrice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `FactorItems` SET `FactorCode` = ?, `prdCode` = ?, `prdAmount` = ? WHERE (" +
-                "(`FactorCode` = ?) AND (`prdCode` = ?) AND ((? = 1 AND `prdAmount` IS NULL) OR (" +
-                "`prdAmount` = ?)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `FactorItems` SET `FactorCode` = ?, `prdCode` = ?, `prdPrice` = ?, `prdAmo" +
+                "unt` = ? WHERE ((`FactorCode` = ?) AND (`prdCode` = ?) AND ((? = 1 AND `prdPrice" +
+                "` IS NULL) OR (`prdPrice` = ?)) AND ((? = 1 AND `prdAmount` IS NULL) OR (`prdAmo" +
+                "unt` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdAmount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FactorCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdCode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdPrice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FactorCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_prdPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdPrice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdAmount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3749,16 +3902,17 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT FactorCode, prdCode, prdAmount FROM FactorItems";
+            this._commandCollection[0].CommandText = "SELECT * FROM FactorItems";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO `FactorItems` (`FactorCode` , `prdCode`, `prdAmount`) VALUES (? , ?, " +
-                "?)";
+            this._commandCollection[1].CommandText = "INSERT INTO `FactorItems` (`FactorCode` , `prdCode`, `prdAmount`, `prdPrice`) VAL" +
+                "UES (? , ?, ?, ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorCode", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FactorCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FactorCode", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdCode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdCode", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdAmount", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prdPrice", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prdPrice", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3818,26 +3972,24 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_FactorCode, string Original_prdCode, string Original_prdAmount) {
-            if ((Original_FactorCode == null)) {
-                throw new global::System.ArgumentNullException("Original_FactorCode");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_FactorCode));
-            }
-            if ((Original_prdCode == null)) {
-                throw new global::System.ArgumentNullException("Original_prdCode");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_prdCode));
-            }
-            if ((Original_prdAmount == null)) {
+        public virtual int Delete(int Original_FactorCode, int Original_prdCode, string Original_prdPrice, global::System.Nullable<int> Original_prdAmount) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_FactorCode));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_prdCode));
+            if ((Original_prdPrice == null)) {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_prdAmount));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_prdPrice));
+            }
+            if ((Original_prdAmount.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_prdAmount.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3859,24 +4011,20 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FactorCode, string prdCode, string prdAmount) {
-            if ((FactorCode == null)) {
-                throw new global::System.ArgumentNullException("FactorCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FactorCode));
-            }
-            if ((prdCode == null)) {
-                throw new global::System.ArgumentNullException("prdCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(prdCode));
-            }
-            if ((prdAmount == null)) {
+        public virtual int Insert(int FactorCode, int prdCode, string prdPrice, global::System.Nullable<int> prdAmount) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(FactorCode));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(prdCode));
+            if ((prdPrice == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(prdAmount));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(prdPrice));
+            }
+            if ((prdAmount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(prdAmount.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3898,44 +4046,38 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FactorCode, string prdCode, string prdAmount, string Original_FactorCode, string Original_prdCode, string Original_prdAmount) {
-            if ((FactorCode == null)) {
-                throw new global::System.ArgumentNullException("FactorCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(FactorCode));
-            }
-            if ((prdCode == null)) {
-                throw new global::System.ArgumentNullException("prdCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(prdCode));
-            }
-            if ((prdAmount == null)) {
+        public virtual int Update(int FactorCode, int prdCode, string prdPrice, global::System.Nullable<int> prdAmount, int Original_FactorCode, int Original_prdCode, string Original_prdPrice, global::System.Nullable<int> Original_prdAmount) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(FactorCode));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(prdCode));
+            if ((prdPrice == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(prdAmount));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(prdPrice));
             }
-            if ((Original_FactorCode == null)) {
-                throw new global::System.ArgumentNullException("Original_FactorCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_FactorCode));
-            }
-            if ((Original_prdCode == null)) {
-                throw new global::System.ArgumentNullException("Original_prdCode");
+            if ((prdAmount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(prdAmount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_prdCode));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Original_prdAmount == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_FactorCode));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_prdCode));
+            if ((Original_prdPrice == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_prdAmount));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_prdPrice));
+            }
+            if ((Original_prdAmount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_prdAmount.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3957,28 +4099,29 @@ namespace KiyanBabyShopCSProject.KiyanDbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string prdAmount, string Original_FactorCode, string Original_prdCode, string Original_prdAmount) {
-            return this.Update(Original_FactorCode, Original_prdCode, prdAmount, Original_FactorCode, Original_prdCode, Original_prdAmount);
+        public virtual int Update(string prdPrice, global::System.Nullable<int> prdAmount, int Original_FactorCode, int Original_prdCode, string Original_prdPrice, global::System.Nullable<int> Original_prdAmount) {
+            return this.Update(Original_FactorCode, Original_prdCode, prdPrice, prdAmount, Original_FactorCode, Original_prdCode, Original_prdPrice, Original_prdAmount);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(string FactorCode, int prdCode, global::System.Nullable<int> prdAmount) {
+        public virtual int InsertQuery(int FactorCode, int prdCode, global::System.Nullable<int> prdAmount, string prdPrice) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[1];
-            if ((FactorCode == null)) {
-                throw new global::System.ArgumentNullException("FactorCode");
-            }
-            else {
-                command.Parameters[0].Value = ((string)(FactorCode));
-            }
+            command.Parameters[0].Value = ((int)(FactorCode));
             command.Parameters[1].Value = ((int)(prdCode));
             if ((prdAmount.HasValue == true)) {
                 command.Parameters[2].Value = ((int)(prdAmount.Value));
             }
             else {
                 command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((prdPrice == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(prdPrice));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
