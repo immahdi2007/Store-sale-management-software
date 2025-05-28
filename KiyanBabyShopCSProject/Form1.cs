@@ -43,8 +43,8 @@ namespace KiyanBabyShopCSProject
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
-            this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
             this.kiyanDbDataSet.EnforceConstraints = false;
+            //this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
             // TODO: This line of code loads data into the 'kiyanDbDataSet.FactorItems' table. You can move, or remove it, as needed.
             this.factorItemsTableAdapter.Fill(this.kiyanDbDataSet.FactorItems);
             // TODO: This line of code loads data into the 'kiyanDbDataSet.Factors' table. You can move, or remove it, as needed.
@@ -638,14 +638,14 @@ namespace KiyanBabyShopCSProject
                                 );
                         }
 
-
+                        string prdPrice = dgvFators.Rows[i].Cells[4].Value.ToString();
                         int minusStock = prdStock - finalAmount;
                         productsTableAdapter.UpdatePrdStock(minusStock.ToString() , prdCode);
                         productsTableAdapter.Fill(kiyanDbDataSet.Products);
 
 
                         //submit in factorItem
-                        factorItemsTableAdapter.InsertQuery(FactorCode.ToString(), prdCode, finalAmount);
+                        factorItemsTableAdapter.InsertQuery(FactorCode, prdCode, finalAmount, prdPrice);
                     }
                 }
 
@@ -769,6 +769,83 @@ namespace KiyanBabyShopCSProject
             decimal totalPrice = Convert.ToDecimal(productsTableAdapter.GetTotalInvertoryPrice());
             
             lblMoney.Text = totalPrice.ToString("N0") + " " + "ریال";
+        }
+
+        private void btnGetAllFactors_Click(object sender, EventArgs e)
+        {
+            GetAllFactorsAndShow();
+        }
+
+        private void GetAllFactorsAndShow()
+        {
+
+            //customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+            factorsTableAdapter.Fill(kiyanDbDataSet.Factors);
+            customersTableAdapter.Fill(kiyanDbDataSet.Customers);
+            factorItemsTableAdapter.Fill(kiyanDbDataSet.FactorItems);
+
+            DataTable ResultFactors = new DataTable();
+            ResultFactors.Columns.Add("FactorCode", typeof(int));
+            ResultFactors.Columns.Add("CustomerCode", typeof(int));
+            ResultFactors.Columns.Add("CustomerName", typeof(string));
+            ResultFactors.Columns.Add("FactorDate", typeof(string));
+            ResultFactors.Columns.Add("SumPrice", typeof(int));
+
+            foreach (DataRow FactorRow in kiyanDbDataSet.Factors.Rows)
+            {
+                string FactorCode = FactorRow["FactorCode"].ToString();
+                string Factordate = FactorRow["FactorDate"].ToString();
+                string CustomerCode = FactorRow["CustomerCode"].ToString();
+                string CustomerName = "";
+
+                Console.WriteLine("CostomerCode: " + CustomerCode + "factorCode: " + FactorCode);
+
+
+                foreach (DataRow CusRow in kiyanDbDataSet.Customers.Rows)
+                {
+
+                    string cCode = CusRow["CustomerCode"] != DBNull.Value ? (CusRow["CustomerCode"]).ToString() : " ";
+
+                    if (cCode == CustomerCode)
+                    {
+                        string FristName = CusRow["CustomerFristName"] != DBNull.Value ? CusRow["CustomerFristName"].ToString() : "";
+                        string LastName = CusRow["CustomerLastName"] != DBNull.Value ? CusRow["CustomerLastName"].ToString() : "";
+
+                        CustomerName += FristName + " " + LastName;
+                        break;
+                    }
+                    Console.WriteLine("CustomerCode Method:" + cCode);
+
+                }
+
+
+                int SumPrice = 0;
+                foreach (DataRow FacItemRow in kiyanDbDataSet.FactorItems.Rows)
+                {
+                    string fiCode = FacItemRow["FactorCode"] != DBNull.Value ? (FacItemRow["FactorCode"]).ToString() : "";
+
+                    if (fiCode == FactorCode)
+                    {
+                        int price = FacItemRow["prdPrice"] != DBNull.Value ? Convert.ToInt32(FacItemRow["prdPrice"]) : 0;
+                        int amount = FacItemRow["prdAmount"] != DBNull.Value ? Convert.ToInt32(FacItemRow["prdAmount"]) : 0;
+
+
+
+                        //int prdPrice = price;
+                        //int prdAmount = amount;
+                        SumPrice = price * amount;
+                    }
+
+                    Console.WriteLine("FactorItem Method:" + fiCode);
+                }
+
+                Console.WriteLine("Adding: " + FactorCode + " CustomerCode: " + CustomerCode + " -  " + sumPrice);
+
+                ResultFactors.Rows.Add(FactorCode, CustomerCode, CustomerName, Factordate, SumPrice);
+            }
+
+            dgvShowAllfactors.DataSource = ResultFactors;
+
         }
     }
 }   
