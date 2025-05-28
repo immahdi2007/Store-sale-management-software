@@ -235,14 +235,16 @@ namespace KiyanBabyShopCSProject
                 txtPrice.Text =
                 txtSize.Text =
                 txtColor.Text =
+                textBox7.Text = 
                 txtCtg.Text = "";
             }
             if(tabControl1.SelectedIndex == 2)
             {
+
                 btnCdelete.Enabled = btnCupdate.Enabled = false;
                 customersTableAdapter.Fill(kiyanDbDataSet.Customers);
                 dataGridView2.ClearSelection();
-                txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = "";
+                txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = txtCusSearch.Text = "";
             }
             if(tabControl1.SelectedIndex == 3)
             {
