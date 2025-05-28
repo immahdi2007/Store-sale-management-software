@@ -139,6 +139,7 @@
     </Content>
     <None Include="Resources\delete_400px.png" />
     <None Include="Resources\close_window_240px.png" />
+    <None Include="Resources\printer_out_of_paper_480px.png" />
     <Content Include="Users.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -692,12 +692,12 @@ namespace KiyanBabyShopCSProject
                 txtCustomerCode.Text = 
                 lblFCutumoerLoc.Text = 
                 Price_result.Text = "";
-            SubmitFactor.Enabled = false;
-            sumPrice = 0;
-            dgvFators.Rows.Clear();
-            txtCustomerCode.ReadOnly = false;
-            button6.Enabled = true;
-            CusToFac.Enabled = true;
+                SubmitFactor.Enabled = false;
+                sumPrice = 0;
+                dgvFators.Rows.Clear();
+                txtCustomerCode.ReadOnly = false;
+                button6.Enabled = true;
+                CusToFac.Enabled = true;
         }
 
         private void PrinterFactor()
@@ -829,6 +829,56 @@ namespace KiyanBabyShopCSProject
             dgvShowAllfactors.DataSource = ResultFactors;
             dgvShowAllfactors.Columns[0].Width = 80;
             dgvShowAllfactors.Columns[1].Width = 80;
+        }
+
+
+
+        private void PrintReportDgvs(string titleText, DataGridView dgvParam)
+        {
+            DGVPrinter PrinterReportDGVS = new DGVPrinter();
+
+            PrinterReportDGVS.TitleFont = new Font("B Titr", 12, FontStyle.Bold);
+            PrinterReportDGVS.Title = titleText + "\n" +
+                "تاریخ: " + FactorPrintDate + "\n"
+                ;
+
+            PrinterReportDGVS.SubTitleFont = new Font("B Titr", 12, FontStyle.Bold);
+            PrinterReportDGVS.SubTitle = "";
+            PrinterReportDGVS.TitleAlignment = StringAlignment.Far;
+            PrinterReportDGVS.SubTitleAlignment = StringAlignment.Far;
+
+
+            PrinterReportDGVS.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            PrinterReportDGVS.PageNumberInHeader = false;
+            PrinterReportDGVS.PorportionalColumns = true;
+            PrinterReportDGVS.HeaderCellAlignment = StringAlignment.Near;
+
+            PrinterReportDGVS.FooterFont = new Font("B Titr", 16, FontStyle.Bold);
+
+            PrinterReportDGVS.Footer = "";
+            PrinterReportDGVS.FooterSpacing = 15;
+            PrinterReportDGVS.printDocument.DefaultPageSettings.Landscape = true;
+            PrinterReportDGVS.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
+            PrinterReportDGVS.PrintDataGridView(dgvParam);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+            if (comboBox1.SelectedIndex == 0)
+            {
+                button2_Click(sender, e);
+                PrintReportDgvs("لیست محصولات به اتمام رسیده", dgvFinishedPrd);
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                button3_Click(sender, e);
+                PrintReportDgvs("لیست محصولات در حال اتمام", dgvFinishedPrd);
+            }else if(comboBox1.SelectedIndex == 2)
+            {
+                GetAllFactorsAndShow();
+                PrintReportDgvs("لیست فاکتور ها", dgvShowAllfactors);
+            }
         }
     }
 }   
