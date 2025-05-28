@@ -775,7 +775,7 @@ namespace KiyanBabyShopCSProject
         private void GetAllFactorsAndShow()
         {
             dgvFinishedPrd.Visible = false;
-            //dgvShowAllfactors.Visible = true;
+            dgvShowAllfactors.Visible = true;
             factorsTableAdapter.Fill(kiyanDbDataSet.Factors);
             customersTableAdapter.Fill(kiyanDbDataSet.Customers);
             factorItemsTableAdapter.Fill(kiyanDbDataSet.FactorItems);
@@ -826,12 +826,9 @@ namespace KiyanBabyShopCSProject
                 ResultFactors.Rows.Add(FactorCode, CustomerCode, CustomerName, Factordate, SumPrice.ToString("N0") + " " + "ریال");
             }
 
-            dgvFinishedPrd.DataSource = null;
-            dgvFinishedPrd.Rows.Clear();
-            dgvFinishedPrd.Columns.Clear();
-            dgvFinishedPrd.DataSource = ResultFactors;
-            //dgvShowAllfactors.Columns[0].Width = 80;
-            //dgvShowAllfactors.Columns[1].Width = 80;
+            dgvShowAllfactors.DataSource = ResultFactors;
+            dgvShowAllfactors.Columns[0].Width = 80;
+            dgvShowAllfactors.Columns[1].Width = 80;
         }
     }
 }   
