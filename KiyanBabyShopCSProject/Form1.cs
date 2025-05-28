@@ -241,7 +241,7 @@ namespace KiyanBabyShopCSProject
             {
                 btnCdelete.Enabled = btnCupdate.Enabled = false;
                 customersTableAdapter.Fill(kiyanDbDataSet.Customers);
-                dataGridView1.ClearSelection();
+                dataGridView2.ClearSelection();
                 txtCname.Text = txtCLname.Text = txtCtel.Text = txtCLoc.Text = "";
             }
             if(tabControl1.SelectedIndex == 3)
